@@ -1,37 +1,35 @@
-<footer>
+<footer class="container-fluid">
 	
-	<div class="container innerFooter">
+	<div class="innerFooter row">
 
 
-		<div class="footerAbout">
+		<div class="footerAbout col-sm-12 col-lg-7">
 			
 			<h2>{{homeIntro.title}}</h2>
 			<h4>{{homeIntro.subtitle}}</h4>
 
 			<p>{{homeIntro.body}}</p>
 
+			<div class="contactBtn">
+				
+				<a href="#!/contact" class="hvr-sweep-to-right">Contact Us!</a>
+
+			</div>
+
 		</div>
 		
-		<div class="footerSocial ">
+		<div class="footerSocial  col-sm-12 col-lg-5">
 			
 			<h3>Site Info...</h3>
 			<a href="#!/home">HOME</a>
 			<a href="#!/home">HOME</a>
 			<a href="#!/home">HOME</a>
 
-		</div>
-		<div class="footerContact">
-				<h3>Contact us!</h3>
-				<div class="underline"></div>
-			<form>
-				<input type="text" name="" placeholder="NAME" required>
 
-				<input type="email" name="" placeholder="EMAIL" required>
-				<input type="text" class="long" name="" placeholder="SUBJECT" required>
-				<textarea placeholder="Content..." required></textarea>
-				<input type="submit" class="sendBtn" name="" value="SEND">
+			<h3>Find us at: </h3>
 
-			</form>
+			<a ng-repeat="item in homeIntro.social" href="{{item.link}}" target="_blank"><img src="{{item.image}}">{{item.text}}</a>
+
 		</div>
 	</div>
 

@@ -16,12 +16,21 @@ app.directive('footsie', function() {
     }
 });
 
+app.directive('contact', function() {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/contact.html'
+    }
+});
 
 
 app.config(function($routeProvider) {
     $routeProvider
         .when("/topic", {
             templateUrl: "topic.html",
+        })
+        .when("/contact", {
+            templateUrl: "contact.html",
         })
         .when("/admin", {
             templateUrl: "admin.html",

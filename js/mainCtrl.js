@@ -1,8 +1,8 @@
- "use strict";
- angular.module("myApp")
-     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
+"use strict";
+angular.module("myApp")
+    .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
 
-        
+
         $rootScope.chosenTopic = null;
         $scope.choseTopic = function(topic) {
             console.log("sadfasdfsadf")
@@ -20,20 +20,35 @@
 
         // MOCK DB
         $scope.hero = {
-        	title: "Clint",
-        	subtitle: "Westwood",
-        	bck: "https://upload.wikimedia.org/wikipedia/en/f/fb/Steve_Rogers_%26_Captain_America_MCU.jpg"
+            title: "Clint",
+            subtitle: "Westwood",
+            bck: "https://upload.wikimedia.org/wikipedia/en/f/fb/Steve_Rogers_%26_Captain_America_MCU.jpg"
 
         }
 
         $scope.homeIntro = {
-        	title: "Our Page",
-        	subtitle: "Learn Coding",
-        	body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus volutpat ex sed scelerisque semper. Vivamus lobortis efficitur diam laoreet aliquet. Quisque hendrerit, eros quis gravida facilisis, ex augue dignissim tortor, eget congue nunc nulla in odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis sapien nisl, accumsan vel metus nec, varius rutrum sem. Phasellus semper lectus nisl, et elementum enim pellentesque eget. Curabitur laoreet urna sed sem tincidunt commodo. In hac habitasse platea dictumst. Aliquam sit amet nunc mi. Etiam sed nibh at arcu pellentesque blandit sit amet sed elit. Suspendisse in tincidunt turpis. Pellentesque rhoncus massa id mi ultrices porta.",
+            title: "Our Page",
+            subtitle: "Learn Coding",
+            body: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus volutpat ex sed scelerisque semper. Vivamus lobortis efficitur diam laoreet aliquet. Quisque hendrerit, eros quis gravida facilisis, ex augue dignissim tortor, eget congue nunc nulla in odio. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis sapien nisl, accumsan vel metus nec, varius rutrum sem. Phasellus semper lectus nisl, et elementum enim pellentesque eget. Curabitur laoreet urna sed sem tincidunt commodo. In hac habitasse platea dictumst. Aliquam sit amet nunc mi. Etiam sed nibh at arcu pellentesque blandit sit amet sed elit. Suspendisse in tincidunt turpis. Pellentesque rhoncus massa id mi ultrices porta.",
+            social: [{
+                    link: "http://www.youtube.com",
+                    image: "/images/ytIcon.png",
+                    text: "Youtube",
+                },
+                {
+                    link: "mailto:kimh2@dc.edu.hk",
+                    image: "/images/emailIcon.png",
+                    text: "Email",
+                },
+                {
+                    link: "tel:+85263258274",
+                    image: "/images/phoneIcon.png",
+                    text: "Phone",
+                },
+            ]
         }
 
-        $scope.topics = [
-            {
+        $scope.topics = [{
                 title: "Machine Learning",
                 subtitle: "AI in the future",
                 video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/WFSYO1_UoVM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>',
@@ -112,4 +127,4 @@
 
 
 
-     })
+    })
