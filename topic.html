@@ -1,0 +1,62 @@
+<div class="topicPage container">
+    <div class="topicContent" ng-show="chosenTopic">
+        <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-9">
+                <div class="topicMain">
+
+
+                	<h1>
+                		<img class='topicIcons' src="images/cppLogo.png" ng-if="chosenTopic.category == 'c++'" alt="c++">
+                    	<img class='topicIcons' src="images/webDevLogo.png" ng-if="chosenTopic.category == 'webdev'" alt="webdev">
+                    	<img class='topicIcons' src="images/pythonLogo.ico" ng-if="chosenTopic.category == 'python'" alt="python">
+                		{{chosenTopic.title}}
+                	</h1>
+                	<h2>{{chosenTopic.subtitle}}</h2>
+					<div ng-bind-html="chosenVideo"></div>
+                	<p>
+                		{{chosenTopic.body}}
+                	</p>
+
+
+
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-12 col-lg-3">
+            	<div class="topicSide">
+            		<h3>blep</h3>
+            	</div>
+            </div>
+        </div>
+    </div>
+    
+
+
+
+
+    <div class="homePage container-fluid" ng-show="!chosenTopic">
+
+        <a href="#!/home">
+            <button class="topicButton">Homepage</button>
+        </a>
+        <h3 class="topicTitle">Quick Select: </h3>
+        <div class="homeHolder">
+            <div class="row">
+                <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="topic in topics | limitTo:6" ng-show="topic.title.toLowerCase().includes(search.toLowerCase()) || search == ''">
+                    <div class="homeItem">
+                        <img src="{{topic.thumbnail}}" alt="{{topic.title}}">
+                        <h2>
+                            <img src="images/cppLogo.png" ng-if="topic.category == 'c++'" alt="c++">
+                            <img src="images/webDevLogo.png" ng-if="topic.category == 'webdev'" alt="webdev">
+                            <img src="images/pythonLogo.ico" ng-if="topic.category == 'python'" alt="python">
+                            {{topic.title}}
+                        </h2>
+                        <p>{{topic.body | limitTo: 100}}...</p>
+                        <div class="right-align">
+                            <a href="#!/topic" ng-click="choseTopic(topic)">Go!</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

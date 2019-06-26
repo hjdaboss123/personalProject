@@ -1,0 +1,23 @@
+<div class="navbar">
+    <img class='logo' src="/images/placeholder.jpg" alt="Logo">
+    <div class="searchBar centerise">
+        <i class="material-icons">search</i>
+        <input type="text" name="" ng-model='search' placeholder="Search..." ng-init="search = ''">
+    </div>
+    <a href="#" class="navItem centerise">
+        <img src="/images/pythonLogo.ico" alt="PythonLogo">
+        Python
+    </a>
+    <a href="#" class="navItem centerise">
+        <img src="/images/webDevLogo.png" alt="WebLogo">
+        Web Dev
+    </a>
+    <a href="#" class="navItem centerise">
+        <img src="/images/cppLogo.png" alt="CppLogo">
+        C++
+    </a>
+    <div class="loginBtn centerise">
+        <button ng-show="!user">Login</button>
+        <button ng-show="user">Logout</button>
+    </div>
+</div>
