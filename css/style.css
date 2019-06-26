@@ -224,9 +224,8 @@ h1 {
 /*  FOOTER  ******************************************************************************************/
 footer {
 	background-color: teal;
-	padding: 50px 20px;
 }
-
+/* 
 .innerFooter {
 	display: flex;
 	display: -webkit-flex;
@@ -237,16 +236,17 @@ footer {
 	justify-content: space-between;
 	-webkit-justify-content: space-between;
 	-ms-justify-content: space-between;
-}
+} */
 
 .footerContact {
 	width: 50%;
 	min-width: 500px;
 	padding-top: 30px;
 	background-color:  #fff;
+	margin: 100px auto;
 }
 
-.innerFooter form {
+.footerContact form {
 	border: 5px #FFF solid;
 	padding: 30px 20px;
 	display: flex;
@@ -261,7 +261,7 @@ footer {
 
 }
 
-.innerFooter form input {
+.footerContact form input {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #c7c7c7;
@@ -271,22 +271,22 @@ footer {
     transition-duration: 0.5s;
 }
 
-.innerFooter form input:focus {
+.footerContact form input:focus {
     border-color: #585858;
 }
 
-.innerFooter form .long {
+.footerContact form .long {
     min-width: 90%;
     flex-grow: 1;
 }
 
-.innerFooter form .sendBtn {
+.footerContact form .sendBtn {
 	background-color: #1db4d9;
 	color: #FFFFFF;
 
 }
 
-.innerFooter h3 {
+.footerContact h3 {
 	color:  #9e9e9e;
 	margin: 5px 0;
 	text-align:  center;
@@ -301,7 +301,7 @@ footer {
 	margin:  5px auto;
 }
 
-.innerFooter form textarea {
+.footerContact form textarea {
     padding: 10px;
     border-radius: 10px;
     border: 1px solid #c7c7c7;
@@ -314,8 +314,43 @@ footer {
     transition-duration: 0.5s;
 }
 
-.innerFooter form textarea:focus {
+.footerContact form textarea:focus {
  	border-color:  #585858;
+}
+
+.footerSocial {
+	background-color: #3AAFA9;
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+
+.footerSocial a {
+	display: block;
+	color: #FEFFFF;
+	margin: 5px;
+}
+
+.footerSocial img {
+	height: 30px;
+	width: 30px;
+	overflow: hidden;
+	border-radius: 5px;
+	margin-right: 10px;
+	object-fit: cover;
+	background-color: #e04c40;
+}
+
+.footerAbout {
+	background-color: #DEF2F1;
+	padding-top: 50px;
+	padding-bottom: 50px;
+	position: relative;
+}
+
+.contactBtn {
+	position: absolute;
+	top: 30px;
+	right: 90px;
 }
 
 
@@ -455,6 +490,25 @@ footer {
 	object-fit: cover;
 }
 
+/*  CRAZY BUTTONS */
+
+.hvr-sweep-to-right:before {
+    background: #2B7A78 !important;
+}
+
+
+
+.contactBtn a {
+	padding:  20px 25px;
+	background-color: #FEFFFF;
+	color: #2B7A78;
+	font-size: 20px;
+}
+
+.contactBtn a:hover {
+
+	color: #FEFFFF;
+}
 
 /*  MEDIA QUERIES  */
 
