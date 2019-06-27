@@ -34,6 +34,8 @@ h1, h2, h3, h4, h5, h6 {
 	font-family: 'Source Code Pro', monospace;
 }
 
+
+
 button {
 	color: #17252A;
     padding: 2px;
@@ -206,17 +208,20 @@ h1 {
 .homeItem a {
 	color: #17252A;
 	padding: 5px;
-	border: 2px solid #17252A;
-	border-radius: 5px;
-	font-size: 22px;
+	/*border: 2px solid #17252A;*/
+	/*border-radius: 5px;*/
+	font-size: 25px;
 	background-color: #FEFFFF;
 	/* box-shadow: 0 0 5px 1px rgba(0,0,0,0.07); */
 
 }
+.hvr-underline-from-left:before {
+    background: #2B7A78 !important;
+}
 
 .homeItem a:hover {
 	color: #2B7A78;
-	border: 2px solid #2B7A78;
+	/*border: 2px solid #2B7A78;*/
 }
 
 

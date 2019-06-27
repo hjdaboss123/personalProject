@@ -7,7 +7,7 @@
         <div class="row">
 
             <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="topic in topics" ng-show="topic.title.toLowerCase().includes(search.toLowerCase()) || search == ''">
-                <div class="homeItem">
+                <div class="homeItem ">
                     <img src="{{topic.thumbnail}}" alt="{{topic.title}}">
                     <h2>
                     	<img src="images/cppLogo.png" ng-if="topic.category == 'c++'" alt="c++">
@@ -17,7 +17,7 @@
                 	</h2>
                     <p>{{topic.body | limitTo: 100}}...</p>
                     <div class="right-align">
-                        <a href="#!/topic" ng-click="choseTopic(topic)">Go!</a>
+                        <a href="#!/topic" ng-click="choseTopic(topic)" class="hvr-underline-from-left">Go!</a>
                     </div>
                 </div>
             </div>
