@@ -15,7 +15,11 @@ angular.module("myApp")
         }
 
 
+        // Get Site Info
 
+        var getHome = firebase.database().ref('siteInfo/homePage');
+        getHome = $firebaseObject(getHome);
+        getHome.$bindTo($scope, "homePage")
 
 
         // MOCK DB

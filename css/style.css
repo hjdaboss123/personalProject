@@ -215,6 +215,10 @@ h1 {
 	/* box-shadow: 0 0 5px 1px rgba(0,0,0,0.07); */
 
 }
+
+.homeItem a:hover {
+	width: 65px;
+}
 .hvr-underline-from-left:before {
     background: #2B7A78 !important;
 }
