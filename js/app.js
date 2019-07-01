@@ -26,6 +26,9 @@ app.directive('contact', function() {
 
 app.config(function($routeProvider) {
     $routeProvider
+        .when("/account", {
+            templateUrl: "account.html",
+        })
         .when("/topic", {
             templateUrl: "topic.html",
         })
