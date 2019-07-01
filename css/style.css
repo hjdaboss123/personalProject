@@ -22,12 +22,16 @@ body {
 	transition-duration: 0.3s;
 }
 
-*:active, *:focus{
+*:active, *:focus, *:visited{
 	outline: none;
 }
 
 a:hover {
 	text-decoration: none;
+}
+
+button:focus {
+	outline: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -36,7 +40,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-button {
+.defaultBtn {
 	color: #17252A;
     padding: 2px;
     border: 3px solid #FEFFFF;
@@ -46,7 +50,7 @@ button {
     margin: 0 5px;
 }
 
-button:hover {
+.defaultBtn:hover {
 	color: #FEFFFF;
 	border: 3px solid #2B7A78;
 	background-color: #2B7A78;
@@ -431,7 +435,7 @@ footer {
 	font-size: 50px;
 	color: green;
 	background-color: white;
-	border-radius:  50%;
+
 	cursor: pointer;
 	transition-duration: 0.2s;
 }
@@ -446,7 +450,16 @@ footer {
 }
 
 .cardHolder h3 {
-	margin-bottom: 50px;
+	font-size: 30px;
+	margin-bottom: 10px;
+	text-decoration: underline;
+}
+
+.cardHolder h5 {
+	font-size: 20px;
+
+	padding-top: 30px;
+	padding-bottom: 0px;
 }
 
 .cardHolder label {
@@ -456,13 +469,14 @@ footer {
 }
 
 .cardHolder input {
+
     padding: 10px;
-    border-radius: 10px;
+    width: 100%;
     border: 1px solid #c7c7c7;
-    margin: 10px 0px;
-    min-width: 240px;
-    flex-grow: 1;
-    transition-duration: 0.5s;
+    margin-bottom: 10px;
+    /* min-width: 240px; */
+    /* flex-grow: 1; */
+    transition-duration: 0s;
 }
 
 .cardHolder input:focus {
@@ -470,16 +484,16 @@ footer {
 }
 
 .cardHolder textarea {
+	transition-duration: 0s;
 	padding: 10px;
-    border-radius: 10px;
     border: 1px solid #c7c7c7;
-    margin: 10px 0px;
-    min-width: 90%;
+    margin-top: 0px;
+    margin-bottom: 50px;
+    width: 100%;
     flex-grow: 1;
     height: 200px;
     min-height: 200px;
-    max-height: 200px;
-    transition-duration: 0.5s;
+
 }
 
 .cardHolder textarea:focus {
@@ -493,6 +507,17 @@ footer {
 	border: 1px solid #c7c7c7;
 }
 
+.cardHolder button {
+	font-size: 20px;
+	margin: 0;
+	border: 1px solid #17252A;
+	background-color: #FEFFFF;
+	position: absolute;
+	bottom: 30px;
+	right: 30px;
+}
+
+.cardHolder button:
 
 /*  TOPICS PAGE */
 
@@ -533,6 +558,10 @@ footer {
 }
 
 /*  CRAZY BUTTONS */
+
+.hvr-shutter-out-horizontal:before {
+	background: #2B7A78 !important;
+}
 
 .hvr-sweep-to-right:before {
     background: #2B7A78 !important;

@@ -1,38 +1,41 @@
-<div class="container-fluid adminPage">
-	<h1>ADMIN</h1>
+<!-- MAKE CREATE ARTICLE:
+		TITLE
+		SUBTITLE
+		IMG
+		VID
+		BODY + CODE
+		(QUIZ)
+
+ -->
+<div class="container-fluid adminPage" ng-controller="adminCtrl">
+    <div class="row adminWrapper">
+        <!-- CARD -->
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="cardHolder" ng-init="edit1=false">
 
 
-	<div class="row adminWrapper">
-		<!-- CARD -->
-		<div class="col-sm-12 col-md-6 col-lg-4">
-			<div class="cardHolder" ng-init="edit1=false">
-				<h3>Hero</h3>
-				<i class="material-icons" ng-click="edit1= !edit1" ng-class="{'active': edit1}">mood</i>
-				
-				<label ng-show="!edit1">Title: {{hero.title}}</label>
-				<input ng-show="edit1" type="text" name="" ng-model="hero.title">
-				<label ng-show="!edit1">Subtitle: {{hero.subtitle}}</label>
-				<input ng-show="edit1" type="text" name="" ng-model="hero.subtitle">
-				<label ng-show="!edit1">Background URL: {{hero.bck}}</label>
-				<input ng-show="edit1" type="text" name="" ng-model="hero.bck">
-			</div>
-		</div>
-		<!-- HOME INTRO -->
-		<div class="col-sm-12 col-md-6 col-lg-4">
-			<div class="cardHolder" ng-init="edit2=false" >
-				<h3>Hero</h3>
-				<i class="material-icons" ng-click="edit2=!edit2" ng-class="{'active': edit2}">info</i>
-				<label ng-show="!edit2">Title: {{homeIntro.title}}</label>
-				<input ng-show="edit2" type="text" name="" ng-model="homeIntro.title">
-				<label ng-show="!edit2">Subtitle: {{homeIntro.subtitle}}</label>
-				<input ng-show="edit2" type="text" name="" ng-model="homeIntro.subtitle">
-				<p ng-show="!edit2">Background URL: {{homeIntro.body}}</p>
-				<textarea ng-show="edit2" type="text" name="" ng-model="homeIntro.body"></textarea>
-			</div>
-		</div>
+                <h3>Create Article</h3>
+                <h5>Type: </h5>
+                <select ng-model="newTopic.type">
+                	<option value="C++">C++</option>
+                	<option value="Python">Python</option>
+                	<option value="webDev">webDev</option>
+                </select>
+                <h5>Title: </h5>
+                <input type="text" name="" ng-model="newTopic.title">
+                <h5>Subtitle: </h5>
+                <input type="text" name="" ng-model="newTopic.subtitle">
+                <h5>Thumbnail: </h5>
+                <input type="file" name="" ng-model="newTopic.thumbnail">
+                <h5>Video Link: </h5>
+                <input type="text" name="" ng-model="newTopic.videoLink">
+                <h5>Body: </h5>
+                <textarea ng-model="newTopic.body"></textarea>
+
+                <button class="hvr-shutter-out-horizontal" ng-show="newTopic.title && newTopic.subtitle && newTopic.body" ng-click="createTopic(newTopic)">Submit</button>
 
 
-	</div>
-
-
+            </div>
+        </div>
+    </div>
 </div>
