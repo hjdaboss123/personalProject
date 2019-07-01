@@ -17,8 +17,11 @@
         C++
     </a>
     <div class="loginBtn centerise">
-        <button ng-show="!user">Login</button>
-        <button ng-show="user">Logout</button>
-        <a href="#!/admin"><button>Admin</button></a>
+        <button ng-click="googleLogin()" ng-show="!user">Login</button>
+        <button ng-show="user" ng-click="logout()">Logout</button>
+        <a href="#!/admin" ng-show="user"><button>A</button></a>
     </div>
+</div>
+<div ng-show="user" class="userWelcome centerise">
+    <p>Welcome, {{user.displayName}} <img src="{{user.photoURL}}" alt="Google photo of {{user.displayName}}"></p>
 </div>
