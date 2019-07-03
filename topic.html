@@ -4,7 +4,7 @@
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div class="topicMain">
 
-
+                    <img src="chosenTopic.img" alt="you suck">
                 	<h1>
                 		<img class='topicIcons' src="images/cppLogo.png" ng-if="chosenTopic.category == 'c++'" alt="c++">
                     	<img class='topicIcons' src="images/webDevLogo.png" ng-if="chosenTopic.category == 'webdev'" alt="webdev">
@@ -13,11 +13,7 @@
                 	</h1>
                 	<h2>{{chosenTopic.subtitle}}</h2>
 					<div ng-bind-html="chosenVideo"></div>
-                	<p>
-                		{{chosenTopic.body}}
-                	</p>
-
-
+                	<div ng-bind-html="chosenBody"></div>
 
                 </div>
             </div>

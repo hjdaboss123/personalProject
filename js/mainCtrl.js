@@ -1,5 +1,11 @@
 "use strict";
 angular.module("myApp")
+    .filter('reverse', function() {
+        return function(items) {
+            return items.slice().reverse();
+        }
+    })
+
     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
 
 
@@ -7,19 +13,27 @@ angular.module("myApp")
         $scope.choseTopic = function(topic) {
             console.log("sadfasdfsadf")
             $rootScope.chosenTopic = topic;
-            sanitiseThis(topic.video)
+            sanitiseThis(topic.video, topic.body)
         }
 
-        function sanitiseThis(video) {
+        function sanitiseThis(video, body) {
             $rootScope.chosenVideo = $sce.trustAsHtml(video);
+            $rootScope.chosenBody = $sce.trustAsHtml(body);
         }
+
 
 
         // Get Site Info
-
         var getHome = firebase.database().ref('siteInfo/homePage');
         getHome = $firebaseObject(getHome);
-        getHome.$bindTo($scope, "homePage")
+        getHome.$bindTo($scope, "homePage");
+
+
+
+        // Get topics
+        var getTopics = firebase.database().ref('topics/');
+        getTopics = $firebaseArray(getTopics);
+        $scope.topics = getTopics;
 
         
        
