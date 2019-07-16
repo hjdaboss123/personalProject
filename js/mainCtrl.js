@@ -63,7 +63,7 @@ angular.module("myApp")
                 }
                 // The signed-in user info.
                 var user = result.user;
-                $window.location.href = '/#!/home'
+                $window.location.href = '/#!/home';
             }).catch(function(error) {
                 // Handle Errors here.
                 var errorCode = error.code;
