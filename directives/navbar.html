@@ -1,4 +1,4 @@
-<div class="navbar">
+<div class="navbar" ng-class="menu ? 'active' : 'disabled'">
     <img class='logo' src="/images/placeholder.jpg" alt="Logo">
     <div class="searchBar centerise">
         <i class="material-icons">search</i>
@@ -17,11 +17,12 @@
         C++
     </a>
     <div class="loginBtn centerise">
-        <button ng-click="googleLogin()" ng-show="!user">Login</button>
-        <button ng-show="user" ng-click="logout()">Logout</button>
-        <a href="#!/admin" ng-show="user"><button>A</button></a>
+        <button ng-click="googleLogin()" ng-show="!user" class="defaultBtn">Login</button>
+        <button ng-show="user" ng-click="logout()" class="defaultBtn">Logout</button>
+        <a href="#!/admin" ng-show="user"><button class="defaultBtn">A</button></a>
     </div>
 </div>
-<div ng-show="user" class="userWelcome centerise">
+<div ng-show="user" ng-init="userWelcome = true" class="userWelcome centerise" ng-class="userWelcome ? 'active' : 'disabled'" ng-click="userWelcome = !userWelcome">
     <p>Welcome, {{user.displayName}} <img src="{{user.photoURL}}" alt="Google photo of {{user.displayName}}"></p>
+    <i class="material-icons">clear</i>
 </div>
