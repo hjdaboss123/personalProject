@@ -4,11 +4,11 @@
             <div class="col-sm-12 col-md-12 col-lg-9">
                 <div class="topicMain">
 
-                    <img src="chosenTopic.img" alt="you suck">
-                	<h1>
-                		<img class='topicIcons' src="images/cppLogo.png" ng-if="chosenTopic.category == 'c++'" alt="c++">
-                    	<img class='topicIcons' src="images/webDevLogo.png" ng-if="chosenTopic.category == 'webdev'" alt="webdev">
-                    	<img class='topicIcons' src="images/pythonLogo.ico" ng-if="chosenTopic.category == 'python'" alt="python">
+                    <!-- <img src="{{chosenTopic.img}}" alt="{{choseTopic.title}}"> -->
+                	<h1 class="articleTitle">
+                		<img class='topicIcons' src="images/cppLogo.png" ng-if="chosenTopic.type == 'C++'" alt="c++">
+                    	<img class='topicIcons' src="images/webDevLogo.png" ng-if="chosenTopic.type == 'webDev'" alt="webdev">
+                    	<img class='topicIcons' src="images/pythonLogo.ico" ng-if="chosenTopic.type == 'Python'" alt="python">
                 		{{chosenTopic.title}}
                 	</h1>
                 	<h2>{{chosenTopic.subtitle}}</h2>

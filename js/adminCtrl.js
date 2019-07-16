@@ -20,6 +20,7 @@ angular.module("myApp")
                             img: url,
                             video: topic.videoLink,
                             type: topic.type,
+                            blurb: topic.blurb,
                             id: newPostKey
                         })
                         console.log("Upload successful")

@@ -31,17 +31,10 @@ angular.module("myApp")
 
 
         // Get topics
+        const topicList = [];
         var getTopics = firebase.database().ref('topics/');
         getTopics = $firebaseArray(getTopics);
         $scope.topics = getTopics;
-
-        
-       
-        
-
-
-
-
 
         // LOG OUT
         $scope.logout = function() {

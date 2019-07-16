@@ -36,6 +36,18 @@ button:focus {
 
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Source Code Pro', monospace;
+	letter-spacing: -2px;
+}
+
+p {
+	font-size: 20px;
+}
+
+pre {
+	border: none;
+	background-color: #FAFAFA;
+	font-family: 'Inconsolata', monospace;
+	font-size: 20px;
 }
 
 
@@ -399,7 +411,9 @@ footer {
 	right: 90px;
 }
 
-
+.footsieP {
+	font-size: 17px;
+}
 
 /* ADMIN PAGE */
 
@@ -542,7 +556,7 @@ footer {
 }
 
 .topicMain {
-
+	
 }
 
 .topicSide {

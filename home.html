@@ -10,14 +10,14 @@
                 <div class="homeItem ">
                     <img src="{{topic.img}}" alt="{{topic.title}}">
                     <h2>
-                    	<img src="images/cppLogo.png" ng-if="topic.category == 'c++'" alt="c++">
-                    	<img src="images/webDevLogo.png" ng-if="topic.category == 'webdev'" alt="webdev">
-                    	<img src="images/pythonLogo.ico" ng-if="topic.category == 'python'" alt="python">
+                    	<img src="images/cppLogo.png" ng-if="topic.type == 'C++'" alt="c++">
+                    	<img src="images/webDevLogo.png" ng-if="topic.type == 'webDev'" alt="webdev">
+                    	<img src="images/pythonLogo.ico" ng-if="topic.type == 'Python'" alt="python">
 	                    {{topic.title}}
                 	</h2>
-<!-- 
+                    <!-- 
                     <p>{{topic.body | limitTo: 100}}...</p> -->
-                    <div ng-bind-html="topic.body"></div>
+                    <p>{{topic.blurb}}</p>
 
 
                     <div class="right-align">
