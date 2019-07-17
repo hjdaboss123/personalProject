@@ -1,13 +1,4 @@
-<!-- MAKE CREATE ARTICLE:
-		TITLE
-		SUBTITLE
-		IMG
-		VID
-		BODY + CODE
-		(QUIZ)
-
- -->
-<div class="container-fluid adminPage" ng-controller="adminCtrl">
+<div class="container-fluid adminPage" ng-controller="adminCtrl" ng-if="user && profile.type == 'admin'">
     <div class="row adminWrapper">
         <!-- CARD -->
         <div class="col-sm-12 col-md-6 col-lg-4">
@@ -40,3 +31,9 @@
         </div>
     </div>
 </div>
+<div ng-if="profile.type != 'admin'">
+    <h2>You are not admin...</h2>
+</div>
+
+
+

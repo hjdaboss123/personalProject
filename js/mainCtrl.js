@@ -7,7 +7,7 @@ angular.module("myApp")
     })
 
     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
-
+        var user = firebase.auth().currentUser;
 
         $rootScope.chosenTopic = null;
         $scope.choseTopic = function(topic) {
@@ -50,6 +50,16 @@ angular.module("myApp")
         //     console.log($scope.search);
         // }
 
+        //Create profile
+        $scope.submitProfile = function(profileName,user) {
+
+            firebase.database().ref('users/' + user.uid).set({
+                id: user.uid,
+                name: profileName,
+                type: "normal"
+            })
+            // body...
+        }
 
         // Get topics
         const topicList = [];
@@ -102,8 +112,6 @@ angular.module("myApp")
         };
 
         // Current User *********************************************************************
-        var user = firebase.auth().currentUser;
-
         // ********** GET USER *******
         firebase.auth().onAuthStateChanged(function(user) {
             if (user) {
