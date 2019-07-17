@@ -1,7 +1,7 @@
 "use strict";
 angular.module("myApp")
     .controller('adminCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
-
+        
         // CREATE TOPIC
         $scope.createTopic = function(topic) {
             alertify.confirm('Create New Topic', 'Would you like to submit this topic?', function() {
@@ -39,14 +39,11 @@ angular.module("myApp")
         }
 
 
-        const uploadFile = (key) => {
 
 
 
 
 
-
-        }
 
 
 

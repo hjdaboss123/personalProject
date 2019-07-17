@@ -19,10 +19,22 @@
     <div class="loginBtn centerise">
         <button ng-click="googleLogin()" ng-show="!user" class="defaultBtn">Login</button>
         <button ng-show="user" ng-click="logout()" class="defaultBtn">Logout</button>
-        <a href="#!/admin" ng-show="user"><button class="defaultBtn">A</button></a>
+        <a href="#!/admin" ng-show="user && profile.type == 'admin' "><button class="defaultBtn">A</button></a>
     </div>
 </div>
 <div ng-show="user" ng-init="userWelcome = true" class="userWelcome centerise" ng-class="userWelcome ? 'active' : 'disabled'" ng-click="userWelcome = !userWelcome">
-    <p>Welcome, {{user.displayName}} <img src="{{user.photoURL}}" alt="Google photo of {{user.displayName}}"></p>
+    <p>Welcome, <span ng-show="!profile.name">{{user.displayName}}</span> <span ng-show="profile.name">{{profile.name}}</span><img src="{{user.photoURL}}" alt="Google photo of {{user.displayName}}"></p>
     <i class="material-icons">clear</i>
 </div>
+
+<div ng-show="user && !profile.name">
+    <input type="text" name="" placeholder="Name:" ng-model="newProfile">
+    <button ng-click="submitProfile(newProfile,user)">Submit Profile!</button>
+</div>
+
+
+
+
+
+
+
