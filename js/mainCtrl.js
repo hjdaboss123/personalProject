@@ -32,6 +32,7 @@ angular.module("myApp")
 
         $scope.showSearch = 0;
         $scope.$watch('search', function(search) {
+            $window.location.href = '/#!/home';
             $scope.showSearch = 0;
             for (var i = 0; i < $scope.topics.length; i++) {
                 if ($scope.topics[i].type == search) {
@@ -58,15 +59,18 @@ angular.module("myApp")
 
         // LOG OUT
         $scope.logout = function() {
+            alertify.confirm('System Notice', 'Would you like to logout?', function() {
+                firebase.auth().signOut().then(function() {
+                    console.log('Logged out');
+                    alertify.success('Logout Successful');
 
-            firebase.auth().signOut().then(function() {
-                console.log('Logged out');
-
-            }).catch(function(error) {
-                alertify.error('Could log out!');
-                console.log(error)
+                }).catch(function(error) {
+                    alertify.error('Couldnt log out!');
+                    console.log(error)
+                });
+            }, function() {
+                alertify.error('Logout cancelled');
             });
-
 
         };
 
