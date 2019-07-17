@@ -44,6 +44,18 @@ h4,
 h5,
 h6 {
     font-family: 'Source Code Pro', monospace;
+    letter-spacing: -1px;
+}
+
+p {
+    font-size: 20px;
+}
+
+pre {
+    border: none;
+    background-color: #FAFAFA;
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
 }
 
 .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
@@ -59,6 +71,7 @@ h6 {
     color: #FEFFFF;
     border: 1px solid #2B7A78;
 }
+
 .menuThing {
     position: fixed;
     top: 0px;
@@ -100,26 +113,7 @@ h6 {
     right: 50px;
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-    font-family: 'Source Code Pro', monospace;
-    letter-spacing: -1px;
-}
 
-p {
-    font-size: 20px;
-}
-
-pre {
-    border: none;
-    background-color: #FAFAFA;
-    font-family: 'Inconsolata', monospace;
-    font-size: 20px;
-}
 
 .menuThing:hover .line2 {
     transform: rotateZ(720deg);
@@ -401,8 +395,14 @@ h1 {
     background: #2B7A78 !important;
 }
 
+
+.hvr-underline-from-left h4 {
+	margin-right: 2px;
+}
+
+
 .homeItem a:hover {
-    color: #2B7A78;
+    /* color: #2B7A78; */
     /*border: 2px solid #2B7A78;*/
 }
 
@@ -656,6 +656,7 @@ footer {
     border: 1px solid #c7c7c7;
 }
 
+
 .cardHolder button {
     font-size: 20px;
     margin: 0;
@@ -670,8 +671,7 @@ footer {
 
 /*  TOPICS PAGE */
 
-.topicPage {
-}
+.topicPage {}
 
 .topicPage h1 {
     background-color: transparent;
@@ -738,6 +738,26 @@ footer {
 }
 
 @media only screen and (max-width: 998px) {
+
+
+    .menuThing .line3 {
+        top: 20px;
+        width: 60px;
+    }
+
+    .menuThing .line1 {
+        transform: rotateZ(720deg);
+        top: 8px;
+        right: 50px;
+    }
+
+
+
+    .menuThing .line2 {
+        transform: rotateZ(720deg);
+        top: 31px;
+        right: 50px;
+    }
 
     .userWelcome p {
         font-size: 14px;
