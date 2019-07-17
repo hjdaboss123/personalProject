@@ -28,6 +28,26 @@ angular.module("myApp")
         getHome = $firebaseObject(getHome);
         getHome.$bindTo($scope, "homePage");
 
+        // Search Function
+
+        $scope.showSearch = 0;
+        $scope.$watch('search', function(search) {
+            $scope.showSearch = 0;
+            for (var i = 0; i < $scope.topics.length; i++) {
+                if ($scope.topics[i].type == search) {
+                    $scope.showSearch++;
+                }
+
+                if ($scope.topics[i].title.toLowerCase().includes(search.toLowerCase())) {
+                    $scope.showSearch++;
+
+                }
+            }
+            console.log($scope.showSearch);
+        });
+        // $scope.getResult = function () {
+        //     console.log($scope.search);
+        // }
 
 
         // Get topics

@@ -87,20 +87,25 @@ h6 {
     right: 50px;
 }
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Source Code Pro', monospace;
-	letter-spacing: -2px;
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Source Code Pro', monospace;
+    letter-spacing: -2px;
 }
 
 p {
-	font-size: 20px;
+    font-size: 20px;
 }
 
 pre {
-	border: none;
-	background-color: #FAFAFA;
-	font-family: 'Inconsolata', monospace;
-	font-size: 20px;
+    border: none;
+    background-color: #FAFAFA;
+    font-family: 'Inconsolata', monospace;
+    font-size: 20px;
 }
 
 .menuThing:hover .line2 {
@@ -113,7 +118,8 @@ pre {
     transform: scale(0.9);
 }
 
-.menuThing:active .line1, .menuThing:active .line2 {
+.menuThing:active .line1,
+.menuThing:active .line2 {
     transform: scale(0.9) translateX(20px);
 }
 
@@ -187,10 +193,12 @@ pre {
     flex-grow: 1;
     height: 50px;
     color: #17252A;
+    cursor: pointer;
 
 }
 
-.navItem:hover {
+.navItem:hover,
+.navItem.active {
     background-color: rgba(0, 0, 0, 0.3);
     text-decoration: none;
     color: white;
@@ -218,7 +226,28 @@ pre {
     background-color: transparent;
     margin: 5px 0px;
     padding: 0 5px;
-    color: #17252A;
+    color: #DEF2F1;
+
+}
+
+.searchResults {
+    width: 100%;
+    max-width: 800px;
+    margin: 20px auto;
+    position: relative;
+    padding: 30px;
+}
+
+.searchResults img {
+    width: 100%;
+}
+
+.searchResults h4 {
+    position: absolute;
+    left: 50px;
+    bottom: 125px;
+    color: #A5A5A5;
+    font-size: 17px;
 }
 
 .navbar i {
@@ -503,7 +532,7 @@ footer {
 }
 
 .footsieP {
-	font-size: 17px;
+    font-size: 17px;
 }
 
 /* ADMIN PAGE */
@@ -622,7 +651,8 @@ footer {
     right: 30px;
 }
 
-.cardHolder{}
+.cardHolder {}
+
 /*  TOPICS PAGE */
 
 .topicPage {
@@ -694,6 +724,30 @@ footer {
 }
 
 @media only screen and (max-width: 998px) {
+
+    .footerAbout {
+        background-color: #DEF2F1;
+        padding-top: 120px;
+        padding-bottom: 50px;
+        position: relative;
+    }
+
+    .contactBtn {
+        left: 0;
+        position: absolute;
+        top: 30px;
+        right: 0;
+        margin: 0px auto;
+        display: block;
+        width: fit-content;
+    }
+
+    .searchResults h4 {
+        bottom: 65px;
+        left: 38px;
+        font-size: 11px;
+        width: 300px;
+    }
 
     .navbar {
         background-color: #3AAFA9;
