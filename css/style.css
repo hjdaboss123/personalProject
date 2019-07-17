@@ -46,6 +46,19 @@ h6 {
     font-family: 'Source Code Pro', monospace;
 }
 
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
+    margin: 4px;
+    background-color: #FEFFFF;
+    color: #2B7A78;
+    border: 1px solid #2B7A78;
+}
+
+.alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button:hover {
+    margin: 4px;
+    background-color: #2B7A78;
+    color: #FEFFFF;
+    border: 1px solid #2B7A78;
+}
 .menuThing {
     position: fixed;
     top: 0px;
@@ -94,7 +107,7 @@ h4,
 h5,
 h6 {
     font-family: 'Source Code Pro', monospace;
-    letter-spacing: -2px;
+    letter-spacing: -1px;
 }
 
 p {
@@ -127,14 +140,16 @@ pre {
 
 
 
+
 .defaultBtn {
-    color: #17252A;
-    padding: 2px;
+    color: #2B7A78;
+    padding: 2px 10px;
     border: 3px solid #FEFFFF;
-    border-radius: 4px;
-    font-size: 20px;
+    border-radius: 0;
+    font-size: 15px;
     background-color: #FEFFFF;
     margin: 0 5px;
+
 }
 
 .defaultBtn:hover {
@@ -342,7 +357,7 @@ h1 {
 .homeItem img {
     height: 200px;
     width: 100%;
-    object-fit: cover;
+    object-fit: contain;
     margin-bottom: 5px;
 }
 
@@ -656,7 +671,6 @@ footer {
 /*  TOPICS PAGE */
 
 .topicPage {
-    padding-top: 80px;
 }
 
 .topicPage h1 {
@@ -724,6 +738,10 @@ footer {
 }
 
 @media only screen and (max-width: 998px) {
+
+    .userWelcome p {
+        font-size: 14px;
+    }
 
     .footerAbout {
         background-color: #DEF2F1;
