@@ -1,58 +1,50 @@
 <div class="topicPage container">
     <div class="topicContent" ng-show="chosenTopic">
         <div class="row">
-            <div class="col-sm-12 col-md-12 col-lg-9">
-                <div class="topicMain">
-
+            <div class="col-sm-12 col-md-12 col-lg-8">
+                <div class="topicMain" ng-init="edit=false">
                     <!-- <img src="{{chosenTopic.img}}" alt="{{choseTopic.title}}"> -->
-                	<h1 class="articleTitle">
-                		<img class='topicIcons' src="images/cppLogo.png" ng-if="chosenTopic.type == 'C++'" alt="c++">
-                    	<img class='topicIcons' src="images/webDevLogo.png" ng-if="chosenTopic.type == 'webDev'" alt="webdev">
-                    	<img class='topicIcons' src="images/pythonLogo.ico" ng-if="chosenTopic.type == 'Python'" alt="python">
-                		{{chosenTopic.title}}
-                	</h1>
-                	<h2>{{chosenTopic.subtitle}}</h2>
-					<div ng-bind-html="chosenVideo"></div>
-                	<div ng-bind-html="chosenBody"></div>
-
+                    <h1 class="articleTitle">
+                        <img class='topicIcons' src="images/cppLogo.png" ng-if="chosenTopic.type == 'C++'" alt="c++">
+                        <img class='topicIcons' src="images/webDevLogo.png" ng-if="chosenTopic.type == 'webDev'" alt="webdev">
+                        <img class='topicIcons' src="images/pythonLogo.ico" ng-if="chosenTopic.type == 'Python'" alt="python">
+                        {{chosenTopic.title}}
+                        <span ng-show="!edit && profile.type == 'admin'" ng-click="edit = true">Edit.</span>
+                        <span ng-show="edit && profile.type == 'admin'" ng-click="edit = false; savePage(chosenTopic, profile)">Save.</span>
+                    </h1>
+                    <label ng-show="edit">
+                        Title:
+                        <input type="text" name="" ng-model="chosenTopic.title">
+                    </label>
+                    <h2>{{chosenTopic.subtitle}}</h2>
+                    <label ng-show="edit">
+                        Subtitle:
+                        <input type="text" name="" ng-model="chosenTopic.subtitle">
+                        Blurb:
+                        <input type="text" name="" ng-model="chosenTopic.blurb">
+                    </label>
+                    <div ng-bind-html="chosenVideo"></div>
+                    <label ng-show="edit">
+                        Video:
+                        <input type="text" name="" ng-model="chosenTopic.video">
+                    </label>
+                    <div ng-bind-html="chosenBody"></div>
+                    <label ng-show="edit">
+                        Body:
+                        <textarea ng-model="chosenTopic.body"></textarea>
+                    </label>
                 </div>
             </div>
-            <div class="col-sm-12 col-md-12 col-lg-3">
-            	<div class="topicSide">
-            		<h3>blep</h3>
-            	</div>
-            </div>
-        </div>
-    </div>
-    
-
-
-
-
-    <div class="homePage container-fluid" ng-show="!chosenTopic">
-
-        <a href="#!/home">
-            <button class="topicButton">Homepage</button>
-        </a>
-        <h3 class="topicTitle">Quick Select: </h3>
-        <div class="homeHolder">
-            <div class="row">
-                <div class="col-sm-12 col-md-6 col-lg-4" ng-repeat="topic in topics | limitTo:6" ng-show="topic.title.toLowerCase().includes(search.toLowerCase()) || search == ''">
-                    <div class="homeItem">
-                        <img src="{{topic.thumbnail}}" alt="{{topic.title}}">
-                        <h2>
-                            <img src="images/cppLogo.png" ng-if="topic.category == 'c++'" alt="c++">
-                            <img src="images/webDevLogo.png" ng-if="topic.category == 'webdev'" alt="webdev">
-                            <img src="images/pythonLogo.ico" ng-if="topic.category == 'python'" alt="python">
-                            {{topic.title}}
-                        </h2>
-                        <p>{{topic.body | limitTo: 100}}...</p>
-                        <div class="right-align">
-                            <a href="#!/topic" ng-click="choseTopic(topic)">Go!</a>
-                        </div>
+            <div class="col-sm-12 col-md-12 col-lg-4">
+                <div class="topicSide">
+                    <h3>Related Topics</h3>
+                    <div class="hvr-icon-wobble-horizontal relatedTopics" ng-repeat="topic in topics" ng-if="topic.type == chosenTopic.type && chosenTopic.title != topic.title" ng-click="choseTopic(topic); $scope.edit=false">
+                        <h4>{{topic.title}}<i class="material-icons hvr-icon">keyboard_arrow_right</i></h4>
+                        <img src="{{topic.img}}" alt="{{topic.blurb}}">
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    
 </div>

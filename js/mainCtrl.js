@@ -21,7 +21,29 @@ angular.module("myApp")
             $rootScope.chosenBody = $sce.trustAsHtml(body);
         }
 
+        $scope.savePage = function(chosenTopic, profile) {
+            if (profile.type == 'admin') {
+                alertify.confirm('Change Topic', 'Would you like to change this topic?', function() {
+                    firebase.database().ref('topics/' + chosenTopic.id).set({
+                        title: chosenTopic.title,
+                        subtitle: chosenTopic.subtitle,
+                        blurb: chosenTopic.blurb,
+                        body: chosenTopic.body,
+                        img: chosenTopic.img,
+                        video: chosenTopic.video,
+                        type: chosenTopic.type,
+                        id: chosenTopic.id
+                    })
 
+                    $scope.choseTopic(chosenTopic);
+                }, function() {
+                    alertify.error('Cancel');
+                });
+            } else {
+                alert("You are not Admin")
+            }
+
+        }
 
         // Get Site Info
         var getHome = firebase.database().ref('siteInfo/homePage');
@@ -51,7 +73,7 @@ angular.module("myApp")
         // }
 
         //Create profile
-        $scope.submitProfile = function(profileName,user) {
+        $scope.submitProfile = function(profileName, user) {
 
             firebase.database().ref('users/' + user.uid).set({
                 id: user.uid,
@@ -72,6 +94,7 @@ angular.module("myApp")
             alertify.confirm('System Notice', 'Would you like to logout?', function() {
                 firebase.auth().signOut().then(function() {
                     console.log('Logged out');
+                    $rootScope.profile = null;
                     alertify.success('Logout Successful');
 
                 }).catch(function(error) {

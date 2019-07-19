@@ -4,15 +4,15 @@
         <i class="material-icons">search</i>
         <input type="text" name="" ng-model='search' placeholder="Search..." ng-init="search = ''">
     </div>
-    <div href="#" class="navItem centerise" ng-click='search="Python"' ng-class="search=='Python' ? 'active' : 'disabled'">
+    <div href="#" class="navItem centerise" ng-click='search="Python"; menu = false' ng-class="search=='Python' ? 'active' : 'disabled'">
         <img src="/images/pythonLogo.ico" alt="PythonLogo">
         Python
     </div>
-    <div href="#" class="navItem centerise" ng-click='search="webDev"' ng-class="search=='webDev' ? 'active' : 'disabled'">
+    <div href="#" class="navItem centerise" ng-click='search="webDev"; menu = false' ng-class="search=='webDev' ? 'active' : 'disabled'">
         <img src="/images/webDevLogo.png" alt="WebLogo">
         Web Dev
     </div>
-    <div href="#" class="navItem centerise" ng-click='search="C++"' ng-class="search=='C++' ? 'active' : 'disabled'">
+    <div href="#" class="navItem centerise" ng-click='search="C++"; menu = false' ng-class="search=='C++' ? 'active' : 'disabled'">
         <img src="/images/cppLogo.png" alt="CppLogo">
         C++
     </div>
