@@ -11,7 +11,7 @@ angular.module("myApp")
                 var uploadTask = storage.child('topics/' + newPostKey + '/' + getImage.files[0].name);
                 uploadTask.put(getImage.files[0]).then(function(snapshot) {
                     storage.child('topics/' + newPostKey + '/' + getImage.files[0].name).getDownloadURL().then(function(url) {
-                        console.log(url)
+                        console.log(topic)
                         try {
                             firebase.database().ref('topics/' + newPostKey).set({
                                 title: topic.title,
@@ -20,6 +20,7 @@ angular.module("myApp")
                                 img: url,
                                 video: topic.videoLink,
                                 type: topic.type,
+                                blurb: topic.blurb,
                                 id: newPostKey
                             })
                             alertify.success('Topic Made');

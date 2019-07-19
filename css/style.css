@@ -56,6 +56,8 @@ pre {
     background-color: #FAFAFA;
     font-family: 'Inconsolata', monospace;
     font-size: 20px;
+    padding: 20px 10px;
+    margin: 20px 0;
 }
 
 .alertify .ajs-footer .ajs-buttons.ajs-primary .ajs-button {
@@ -689,6 +691,53 @@ footer {
 
 }
 
+.articleTitle span {
+    position: fixed;
+    left: 20px;
+    top: 100px;
+    background-color: green;
+    color: white;
+    font-size: 14px;
+    padding: 5px 10px;
+    margin: 0px 10px;
+    cursor: pointer;
+    z-index: 90;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+}
+
+.articleTitle span:nth-child(2){
+    background-color: red;
+}
+
+.topicMain {
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.topicMain label {
+    display: block;
+}
+
+.topicMain input {
+    border: none;
+    background-color: #e8e8e8;
+    margin: 0px 5px;
+    padding: 5px 10px;
+}
+
+.topicMain textarea {
+    display: block;
+    border: none;
+    background-color: #e8e8e8;
+    margin: 10px 0px;
+    padding: 5px 10px;
+    height: 300px;
+    min-height: 300px;
+    max-height: 300px;
+    width: 100%;
+    min-width: 300px;
+}
+
 .topicSide {
     background-color: #DEF2F1;
     padding: 30px 15px;
@@ -699,6 +748,47 @@ footer {
     width: 80px;
     height: 80px;
     object-fit: cover;
+}
+
+.relatedTopics {
+    background-color: #FEFFFF;
+    color: #2B7A78;
+    border: 1px solid #17252A;
+    padding: 15px 20px;
+    margin: 5px 0px;
+    width: 100%;
+    cursor: pointer;
+
+
+
+
+}
+
+.relatedTopics h4 {
+    font-size: 20px;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    justify-content: space-between;
+    -webkit-justify-content: space-between;
+    -ms-justify-content: space-between;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+}
+
+.relatedTopics i {
+    color: #FEFFFF;
+    background-color: #2B7A78;
+}
+
+.relatedTopics img {
+    width: 100%;
+    max-width: 200px;
+    height: 100px;
+    object-fit: contain;
+    margin-top: 10px;
+
 }
 
 /*  CRAZY BUTTONS */
