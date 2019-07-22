@@ -29,6 +29,34 @@
 
             </div>
         </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="cardHolder" ng-init="edit2=false">
+
+                <h3>Site Info</h3>
+                <h5>META</h5>
+                <label>
+                    Title: <span ng-show="!edit2">{{siteInfo.meta.title}}</span>
+                    <input type="text" name="" ng-model="siteInfo.meta.title" ng-show="edit2">
+                </label>
+                <label>
+                    Desc: <span ng-show="!edit2">{{siteInfo.meta.desc}}</span>
+                    <input type="text" name="" ng-model="siteInfo.meta.desc" ng-show="edit2">
+                </label>
+
+                <h5>FOOTER</h5>
+                <label>
+                    Title: <span ng-show="!edit2">{{siteInfo.homePage.footerTitle}}</span>
+                    <input type="text" name="" ng-model="siteInfo.homePage.footerTitle" ng-show="edit2">
+                </label>
+                <label>
+                    Subtitle: <span ng-show="!edit2">{{siteInfo.homePage.footerSubtitle}}</span>
+                    <input type="text" name="" ng-model="siteInfo.homePage.footerSubtitle" ng-show="edit2">
+                </label>
+                <button ng-show="edit2" ng-click="edit2 = false">Save</button>
+                <button ng-show="!edit2" ng-click="edit2 = true">Edit</button>
+
+            </div>
+        </div>
     </div>
 </div>
 <div ng-if="profile.type != 'admin'">
