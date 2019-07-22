@@ -5,10 +5,10 @@
 
 		<div class="footerAbout col-sm-12 col-lg-7">
 			
-			<h2>{{homePage.footerTitle}}</h2>
-			<h4>{{homePage.footerSubtitle}}</h4>
+			<h2>{{siteInfo.homePage.footerTitle}}</h2>
+			<h4>{{siteInfo.homePage.footerSubtitle}}</h4>
 
-			<p class="footsieP">{{homePage.body}}</p>
+			<p class="footsieP">{{siteInfo.homePage.body}}</p>
 
 			<div class="contactBtn">
 				
@@ -20,15 +20,14 @@
 		
 		<div class="footerSocial  col-sm-12 col-lg-5">
 			
-			<h3>Site Info...</h3>
-			<a href="#!/home">HOME</a>
-			<a href="#!/home">HOME</a>
-			<a href="#!/home">HOME</a>
+			<h3>Site Info: </h3>
+			<a href="{{anchor.link}}" ng-repeat="anchor in siteInfo.anchors">{{anchor.text}}</a>
+			
 
 
-			<h3>Find us at: </h3>
-
-			<a ng-repeat="item in homeIntro.social" href="{{item.link}}" target="_blank"><img src="{{item.image}}">{{item.text}}</a>
+			<h3 ng-repeat="item in siteInfo.social" >{{item.text}}
+				<a href="{{item.link}}" target="_blank"><img src="images/{{item.img}}"></a>
+			</h3>
 
 		</div>
 	</div>

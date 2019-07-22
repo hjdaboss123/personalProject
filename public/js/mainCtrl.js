@@ -44,11 +44,10 @@ angular.module("myApp")
             }
 
         }
-
         // Get Site Info
-        var getHome = firebase.database().ref('siteInfo/homePage');
-        getHome = $firebaseObject(getHome);
-        getHome.$bindTo($scope, "homePage");
+        var getSiteInfo = firebase.database().ref('siteInfo');
+        getSiteInfo = $firebaseObject(getSiteInfo);
+        getSiteInfo.$bindTo($scope, "siteInfo");
 
         // Search Function
 
