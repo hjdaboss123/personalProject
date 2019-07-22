@@ -399,7 +399,7 @@ h1 {
 
 
 .hvr-underline-from-left h4 {
-	margin-right: 2px;
+    margin-right: 2px;
 }
 
 
@@ -702,10 +702,10 @@ footer {
     margin: 0px 10px;
     cursor: pointer;
     z-index: 90;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.5);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
 }
 
-.articleTitle span:nth-child(2){
+.articleTitle span:nth-child(2) {
     background-color: red;
 }
 
@@ -824,11 +824,63 @@ footer {
         min-width: 300px;
     }
 
+    .topicMain iframe {
+        width: 100%;
+        height: 160px;
+    }
+
+    .topicMain h1 {
+        font-size: 25px;
+    }
+
+    .topicMain h2 {
+        font-size: 20px;
+    }
+
+    .topicIcons {
+        width: 40px;
+        height: 40px;
+    }
+
+    pre {
+        font-size: 15px;
+        overflow-x: scroll;
+    }
+
+
+
+    .footsieP {
+        font-size: 15px;
+    }
 
 }
 
 @media only screen and (max-width: 998px) {
 
+    .relatedTopics {
+        margin: 5px;
+        width: 46%;
+        min-width: 200px;
+        flex-grow: 1;
+    }
+
+    .topicSide h3 {
+        width: 100%;
+    }
+
+
+
+
+
+    .topicSide {
+        margin-bottom: 15px;
+        display: flex;
+        display: -webkit-flex;
+        display: -ms-flex;
+        flex-wrap: wrap;
+        -webkit-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+    }
 
     .menuThing .line3 {
         top: 20px;
