@@ -1,8 +1,9 @@
 <div class="navbar" ng-class="menu ? 'active' : 'disabled'">
     <img class='logo' src="/images/PPLogo.png" alt="Logo">
     <div class="searchBar centerise">
-        <i class="material-icons">search</i>
-        <input type="text" name="" ng-model='search' placeholder="Search..." ng-init="search = ''">
+
+        <input id="enter" type="text" name="" ng-model='search2' placeholder="Search..." ng-init="search2 = ''">
+        <i ng-click='search=search2' ng-init="search = '' " class="material-icons searchBtn" id="clickSearch">search</i>
     </div>
     <div href="#" class="navItem centerise" ng-click='search="Python"; menu = false' ng-class="search=='Python' ? 'active' : 'disabled'">
         <img src="/images/pythonLogo.ico" alt="PythonLogo">
