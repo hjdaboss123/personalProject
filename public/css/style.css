@@ -133,7 +133,10 @@ pre {
 }
 
 
-
+.searchBtn {
+    /* border: 1px solid black; */
+    cursor: pointer;
+}
 
 
 

@@ -67,9 +67,27 @@ angular.module("myApp")
             }
             console.log($scope.showSearch);
         });
-        // $scope.getResult = function () {
-        //     console.log($scope.search);
-        // }
+
+        $scope.$watch('search2', function() {
+            enter = document.getElementById("enter");
+            console.log(enter)
+        });
+
+        //Search enter event
+
+        let enter = document.querySelector("body");
+
+        enter.addEventListener("keydown", (e) => {
+            if (event.keyCode === 13) {
+                // Cancel the default action, if needed
+                event.preventDefault();
+                // Trigger the button element with a click
+                document.getElementById("clickSearch").click();
+            }
+        })
+
+
+
 
         //Create profile
         $scope.submitProfile = function(profileName, user) {
