@@ -70,7 +70,7 @@ angular.module("myApp")
 
         $scope.$watch('search2', function() {
             enter = document.getElementById("enter");
-            console.log(enter)
+
         });
 
         //Search enter event
@@ -78,9 +78,14 @@ angular.module("myApp")
         let enter = document.querySelector("body");
 
         enter.addEventListener("keydown", (e) => {
+
             if (event.keyCode === 13) {
                 // Cancel the default action, if needed
                 event.preventDefault();
+
+                enter = document.getElementById("enter");
+                enter.blur();
+                $scope.menu = false;
                 // Trigger the button element with a click
                 document.getElementById("clickSearch").click();
             }
