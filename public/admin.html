@@ -52,6 +52,10 @@
                     Subtitle: <span ng-show="!edit2">{{siteInfo.homePage.footerSubtitle}}</span>
                     <input type="text" name="" ng-model="siteInfo.homePage.footerSubtitle" ng-show="edit2">
                 </label>
+                <label>
+                    Body: <span ng-show="!edit2">{{siteInfo.homePage.body}}</span>
+                    <textarea ng-model="siteInfo.homePage.body" ng-show="edit2"></textarea>
+                </label>
                 <button ng-show="edit2" ng-click="edit2 = false">Save</button>
                 <button ng-show="!edit2" ng-click="edit2 = true">Edit</button>
 
