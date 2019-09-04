@@ -3,6 +3,18 @@
 
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- META TAGS -->
+    <meta charset="UTF-8">
+    <meta name="description" content="{{siteInfo.meta.title}}">
+    <meta name="keywords" content="{{siteInfo.meta.desc}}">
+    <meta name="author" content="Hyungjun Kim">
+    <meta property="og:type" content="article" ng-if="chosenTopic" />
+    <meta property="og:title" content="{{chosenTopic.title}}" ng-if="chosenTopic" />
+    <meta property="og:description" content="{{chosenTopic.blurb}}" ng-if="chosenTopic" />
+    <meta property="og:image" content="images/cppLogo.png" ng-if="chosenTopic.type == 'C++'">
+    <meta property="og:image" content="images/webDevLogo.png" ng-if="chosenTopic.type == 'webDev'">
+    <meta property="og:image" content="images/pythonLogo.ico" ng-if="chosenTopic.type == 'Python'">
+    
     <!-- FAVICONS -->
     <link rel="apple-touch-icon" sizes="57x57" href="images/favicons/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="images/favicons/apple-icon-60x60.png">
@@ -31,14 +43,11 @@
     <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Code+Pro:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Inconsolata&display=swap" rel="stylesheet">
-
-  <link rel="stylesheet" type="text/css" href="css/hover-min.css">
-	<link rel="stylesheet" type="text/css" href="css/prettify.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-	
-	<title>{{siteInfo.meta.title}}</title>
+    <link rel="stylesheet" type="text/css" href="css/hover-min.css">
+    <link rel="stylesheet" type="text/css" href="css/prettify.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>{{siteInfo.meta.title}}</title>
     <meta name="description" content="{{siteInfo.meta.desc}}">
-
 </head>
 
 <body>
