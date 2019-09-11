@@ -65,7 +65,6 @@ angular.module("myApp")
 
                 }
             }
-            console.log($scope.showSearch);
         });
 
         $scope.$watch('search2', function() {
