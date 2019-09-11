@@ -3,14 +3,12 @@
         <!-- CARD -->
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="cardHolder" ng-init="edit1=false">
-
-
                 <h3>Create Article</h3>
                 <h5>Type: </h5>
                 <select ng-model="newTopic.type">
-                	<option value="C++">C++</option>
-                	<option value="Python">Python</option>
-                	<option value="webDev">webDev</option>
+                    <option value="C++">C++</option>
+                    <option value="Python">Python</option>
+                    <option value="webDev">webDev</option>
                 </select>
                 <h5>Title: </h5>
                 <input type="text" name="" ng-model="newTopic.title">
@@ -25,13 +23,10 @@
                 <h5>Body: </h5>
                 <textarea ng-model="newTopic.body"></textarea>
                 <button class="hvr-shutter-out-horizontal" ng-show="newTopic.title && newTopic.subtitle && newTopic.body" ng-click="createTopic(newTopic)">Submit</button>
-
-
             </div>
         </div>
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="cardHolder" ng-init="edit2=false">
-
                 <h3>Site Info</h3>
                 <h5>META</h5>
                 <label>
@@ -42,7 +37,6 @@
                     Desc: <span ng-show="!edit2">{{siteInfo.meta.desc}}</span>
                     <input type="text" name="" ng-model="siteInfo.meta.desc" ng-show="edit2">
                 </label>
-
                 <h5>FOOTER</h5>
                 <label>
                     Title: <span ng-show="!edit2">{{siteInfo.homePage.footerTitle}}</span>
@@ -58,7 +52,31 @@
                 </label>
                 <button ng-show="edit2" ng-click="edit2 = false">Save</button>
                 <button ng-show="!edit2" ng-click="edit2 = true">Edit</button>
-
+            </div>
+        </div>
+        <!-- Quiz Card -->
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="cardHolder">
+                <h3>Create Quiz</h3>
+                <h5>Type: </h5>
+                <select ng-model="newQuiz.field">
+                    <option value="C++">C++</option>
+                    <option value="Python">Python</option>
+                    <option value="webDev">webDev</option>
+                </select>
+                <h5>Name: </h5>
+                <input type="text" name="" ng-model="newQuiz.name">
+                <h5>Difficulty: </h5>
+                <select ng-model="newQuiz.difficulty">
+                    <option value="easy">Easy</option>
+                    <option value="medium">Medium</option>
+                    <option value="hard">Hard</option>
+                </select>
+                <h5>Attatched Article: </h5>
+                <select ng-model="newQuiz.articleKey">
+                    <option value="{{topic.id}}" ng-repeat="topic in topics">{{topic.title}}</option>
+                </select>
+                <button class="hvr-shutter-out-horizontal" ng-show="newQuiz.name" ng-click="createQuiz(newQuiz)">Submit</button>
             </div>
         </div>
     </div>
@@ -66,6 +84,3 @@
 <div ng-if="profile.type != 'admin'">
     <h2>You are not admin...</h2>
 </div>
-
-
-
