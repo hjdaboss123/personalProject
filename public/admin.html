@@ -86,15 +86,15 @@
         <div class="col-sm-12 col-md-6 col-lg-4">
             <div class="cardHolder">
                 <h3>Quizzes</h3>
-                <label>
+                <label ng-init="quizTopic = 'C++'">
                     Choose topic:
-                    <select>
+                    <select ng-model="quizTopic">
                         <option value="C++">C++</option>
                         <option value="Python">Python</option>
                         <option value="webDev">webDev</option>
                     </select>
                 </label>
-                <div ng-repeat="quiz in quizzes">
+                <div ng-repeat="quiz in quizzes" ng-show="quiz.field == quizTopic" ng-click="editQuiz(quiz)">
                     {{quiz.name}}
                 </div>
             </div>
