@@ -41,10 +41,10 @@ app.config(function($routeProvider) {
         .when("/home", {
             templateUrl: "home.html",
         })
+        .when("/quiz", {
+            templateUrl: "quiz.html",
+        })
         .otherwise({
             redirectTo: '/home'
         });
 });
-
-
-

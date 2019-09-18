@@ -39,57 +39,58 @@ angular.module("myApp")
         }
 
 
-            $scope.createQuiz = function(quiz) {
-                console.log(quiz);
-                var newPostKey = firebase.database().ref().child('topics/').push().key;
-                firebase.database().ref('quiz/' + newPostKey).set({
-                    name: quiz.name,
-                    difficulty: quiz.difficulty,
-                    field: quiz.field,
-                    articleKey: quiz.articleKey
-                })
-                firebase.database().ref('topics/' + quiz.articleKey + "/quiz").set(newPostKey);
+        $scope.createQuiz = function(quiz) {
+            console.log(quiz);
+            var newPostKey = firebase.database().ref().child('topics/').push().key;
+            firebase.database().ref('quiz/' + newPostKey).set({
+                name: quiz.name,
+                difficulty: quiz.difficulty,
+                field: quiz.field,
+                articleKey: quiz.articleKey,
+                key: newPostKey
+            })
+            firebase.database().ref('topics/' + quiz.articleKey + "/quiz").set(newPostKey);
 
-            }
-
-
-            const asdfs = {
-
-                name: "C++ Syntax",
-                difficulty: "easy",
-                field: "c++",
-                articleKey: "",
-                questions: [{
-                        question: "What is something?",
-                        type: "multi",
-                        answer: "c",
-                        possible: [
-                            "This",
-                            "That",
-                            "Something",
-                            "Other"
-                        ]
-                    },
-                    {
-                        question: "What is Other?",
-                        type: "fill",
-                        t: [
-                            "<",
-                            "></",
-                            ">"
-                        ],
-                        a: [
-                            "h1",
-                            "h1",
-                            ""
-                        ]
-
-                    }
-
-                ]
+        }
 
 
-            }
+        const asdfs = {
+
+            name: "C++ Syntax",
+            difficulty: "easy",
+            field: "c++",
+            articleKey: "",
+            questions: [{
+                    question: "What is something?",
+                    type: "multi",
+                    answer: "c",
+                    possible: [
+                        "This",
+                        "That",
+                        "Something",
+                        "Other"
+                    ]
+                },
+                {
+                    question: "What is Other?",
+                    type: "fill",
+                    t: [
+                        "<",
+                        "></",
+                        ">"
+                    ],
+                    a: [
+                        "h1",
+                        "h1",
+                        ""
+                    ]
+
+                }
+
+            ]
+
+
+        }
 
 
 

@@ -49,6 +49,12 @@ angular.module("myApp")
         getSiteInfo = $firebaseObject(getSiteInfo);
         getSiteInfo.$bindTo($scope, "siteInfo");
 
+        // Get Quiz Info
+        var getQuiz = firebase.database().ref('quiz');
+        getQuiz = $firebaseObject(getQuiz);
+        getQuiz.$bindTo($scope, "quizzes");
+
+
         // Search Function
 
         $scope.showSearch = 0;
@@ -165,7 +171,7 @@ angular.module("myApp")
                 var getProfile = firebase.database().ref('users/' + user.uid);
                 getProfile = $firebaseObject(getProfile);
                 getProfile.$bindTo($rootScope, "profile");
-                $window.location.href = '/#!/home'
+                $window.location.href = '/#!/home';
             } else {
                 // No user is signed in.
                 $rootScope.user = null;
@@ -174,7 +180,12 @@ angular.module("myApp")
         });
 
 
-
+        // Edit Quiz
+        $rootScope.chosenQuiz = null;
+        $scope.editQuiz = function(quiz) {
+            $rootScope.chosenQuiz = quiz;
+            $window.location.href = '/#!/quiz';
+        }
 
 
     })
