@@ -49,6 +49,12 @@ angular.module("myApp")
         getSiteInfo = $firebaseObject(getSiteInfo);
         getSiteInfo.$bindTo($scope, "siteInfo");
 
+        // Get Quiz Info
+        var getQuiz = firebase.database().ref('quiz');
+        getQuiz = $firebaseObject(getQuiz);
+        getQuiz.$bindTo($scope, "quizzes");
+
+
         // Search Function
 
         $scope.showSearch = 0;

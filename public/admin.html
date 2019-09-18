@@ -60,6 +60,7 @@
                 <h3>Create Quiz</h3>
                 <h5>Type: </h5>
                 <select ng-model="newQuiz.field">
+                    <option selected value="">Select Language</option>
                     <option value="C++">C++</option>
                     <option value="Python">Python</option>
                     <option value="webDev">webDev</option>
@@ -68,15 +69,34 @@
                 <input type="text" name="" ng-model="newQuiz.name">
                 <h5>Difficulty: </h5>
                 <select ng-model="newQuiz.difficulty">
+                    <option selected value="">Select Difficulty</option>
                     <option value="easy">Easy</option>
                     <option value="medium">Medium</option>
                     <option value="hard">Hard</option>
                 </select>
                 <h5>Attatched Article: </h5>
                 <select ng-model="newQuiz.articleKey">
+                    <option selected value="">Select Article</option>
                     <option value="{{topic.id}}" ng-repeat="topic in topics">{{topic.title}}</option>
                 </select>
                 <button class="hvr-shutter-out-horizontal" ng-show="newQuiz.name" ng-click="createQuiz(newQuiz)">Submit</button>
+            </div>
+        </div>
+        <!-- Quizzes -->
+        <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="cardHolder">
+                <h3>Quizzes</h3>
+                <label>
+                    Choose topic:
+                    <select>
+                        <option value="C++">C++</option>
+                        <option value="Python">Python</option>
+                        <option value="webDev">webDev</option>
+                    </select>
+                </label>
+                <div ng-repeat="quiz in quizzes">
+                    {{quiz.name}}
+                </div>
             </div>
         </div>
     </div>
