@@ -10,10 +10,34 @@
         <button ng-show="edit" ng-click="edit = !edit">Save</button>
     </div>
 
+    <div class="quizList" ng-repeat="question in chosenQuiz.questions">
+    	
+    	<h2 ng-show="question.type == 'fill'">Fill in the Blanks: </h2>
+    	<h5>{{question.question}}</h5>
+    	<div ng-show="question.type == 'fill'">
+    		<p>{{question.fill.a}}</p>
+    		<input class="fill"type="text" name="" ng-model="thisQuestion.fill.a">
+    		<p ng-if="question.fill.b">{{question.fill.b}}</p>
+    		<input class="fill"type="text" name="" ng-model="thisQuestion.fill.b" ng-if="question.fill.d">
+    		<p ng-if="question.fill.e">{{question.fill.c}}</p>
+    		<input class="fill"type="text" name="" ng-model="thisQuestion.fill.c" ng-if="question.fill.f">
+    	</div>
+
+    	<div ng-show="question.type == 'multi'">
+    		<label>{{question.possible.a}}<input type="radio" name="dab" value="question.possible.a"></label>
+    		<label>{{question.possible.b}}<input type="radio" name="dab" value="question.possible.b"></label>
+    		<label>{{question.possible.c}}<input type="radio" name="dab" value="question.possible.c"></label>
+    		<label>{{question.possible.d}}<input type="radio" name="dab" value="question.possible.d"></label>
+    	</div>
+
+    </div>
+
+
 <!-- Add questions -->
     <div class="addQuestions">
+    	<h2>Add Questions: </h2>
         <select ng-model="newQuestion.type">
-            <option value="multi">Multiple choice</option>
+            <option value="multi" selected>Multiple choice</option>
             <option value="fill">Fill in</option>
         </select>
 
@@ -29,7 +53,7 @@
 
             <h5>Answer:</h5>
             <select ng-model="newQuestion.answer">
-            	<option value="a">A</option>
+            	<option value="a" selected>A</option>
             	<option value="b">B</option>
             	<option value="c">C</option>
             	<option value="d">D</option>
@@ -40,13 +64,20 @@
         </div>
         <div class="fillIn" ng-show="newQuestion.type == 'fill'">
             <h4>Fill</h4>
-            <label>Text: <input type="text" name="" ng-model="newQuestion.question.a" placeholder='Text'></label>
-            <label>Fill: <input type="text" name="" ng-model="newQuestion.question.b" placeholder='Fill'></label>
-            <label>Text: <input type="text" name="" ng-model="newQuestion.question.c" placeholder='Text'></label>
-            <label>Fill: <input type="text" name="" ng-model="newQuestion.question.d" placeholder='Fill'></label>
-            <label>Text: <input type="text" name="" ng-model="newQuestion.question.e" placeholder='Text'></label>
-            <label>Fill: <input type="text" name="" ng-model="newQuestion.question.f" placeholder='Fill'></label>
+            <h5>Question:</h5>
+            <input type="text" name="" ng-model="newQuestion.question" placeholder="Please complete the h1 element">
+            <br>
+            <label>Text: <input type="text" name="" ng-model="newQuestion.fill.a" placeholder='<'></label>
+            <label>Fill: <input type="text" name="" ng-model="newQuestion.fill.b" placeholder='--Fill--'></label>
+            <label>Text: <input type="text" name="" ng-model="newQuestion.fill.c" placeholder='><'></label>
+            <label>Fill: <input type="text" name="" ng-model="newQuestion.fill.d" placeholder='--Fill--'></label>
+            <label>Text: <input type="text" name="" ng-model="newQuestion.fill.e" placeholder='/>'></label>
+            <label>Fill: <input type="text" name="" ng-model="newQuestion.fill.f" placeholder='optional...'></label>
+
         </div>
+
+        <button ng-click="addQuestion(newQuestion, chosenQuiz)" ng-show="newQuestion.question">Submit!</button>
+
     </div>
 
 <!-- Question List -->
