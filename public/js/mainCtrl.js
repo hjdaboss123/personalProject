@@ -187,5 +187,27 @@ angular.module("myApp")
             $window.location.href = '/#!/quiz';
         }
 
+        // Submit Questions
+        $scope.addQuestion = function(newQuestion, chosenQuiz) {
+            console.log(newQuestion);
+            console.log(chosenQuiz);
+
+            var newPostKey = firebase.database().ref().child('quiz/' + chosenQuiz.key + '/questions/').push().key;
+            if (newQuestion.type == "fill") {
+                firebase.database().ref('quiz/' + chosenQuiz.key + '/questions/' + newPostKey).set({
+                    question: newQuestion.question,
+                    type: newQuestion.type,
+                    fill: newQuestion.fill
+                })
+            } else {
+                firebase.database().ref('quiz/' + chosenQuiz.key + '/questions/' + newPostKey).set({
+                    question: newQuestion.question,
+                    type: newQuestion.type,
+                    possible: newQuestion.possible,
+                    answer: newQuestion.answer
+                })
+            }
+        }
+
 
     })
