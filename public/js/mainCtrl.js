@@ -186,6 +186,13 @@ angular.module("myApp")
             $rootScope.chosenQuiz = quiz;
             $window.location.href = '/#!/quiz';
         }
+        // CHECK QUIZ
+        $scope.checkQuiz = function(chosenQuiz, quiz) {
+        
+            
+
+        }
+
 
         // Submit Questions
         $scope.addQuestion = function(newQuestion, chosenQuiz) {

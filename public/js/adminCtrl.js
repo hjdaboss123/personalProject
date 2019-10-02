@@ -54,45 +54,6 @@ angular.module("myApp")
         }
 
 
-        const asdfs = {
-
-            name: "C++ Syntax",
-            difficulty: "easy",
-            field: "c++",
-            articleKey: "",
-            questions: [{
-                    question: "What is something?",
-                    type: "multi",
-                    answer: "c",
-                    possible: [
-                        "This",
-                        "That",
-                        "Something",
-                        "Other"
-                    ]
-                },
-                {
-                    question: "What is Other?",
-                    type: "fill",
-                    t: [
-                        "<",
-                        "></",
-                        ">"
-                    ],
-                    a: [
-                        "h1",
-                        "h1",
-                        ""
-                    ]
-
-                }
-
-            ]
-
-
-        }
-
-
 
 
     })
