@@ -845,6 +845,27 @@ footer {
     color: #FFF;
     padding: 20px;
     border-radius: 5px;
+    position: relative;
+}
+
+.quizTitle .stamp {
+    background-image: url(../images/awardImg.png);
+    background-size: contain;
+    background-position: center;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+
+
+}
+
+.quizTitle .stamp h4 {
+    position: absolute;
+    bottom: 5px;
+    width: 100%;
+    color: white;
 }
 
 .addQuestions {

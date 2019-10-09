@@ -184,15 +184,72 @@ angular.module("myApp")
         $rootScope.chosenQuiz = null;
         $scope.editQuiz = function(quiz) {
             $rootScope.chosenQuiz = quiz;
+
+            // Get Site Info
+            var getSiteInfo = firebase.database().ref('quiz/' + quiz.key + '/questions');
+            getSiteInfo = $firebaseArray(getSiteInfo);
+            $rootScope.chosenQuestions = getSiteInfo;
+            //console.log(getSiteInfo)
             $window.location.href = '/#!/quiz';
         }
         // CHECK QUIZ
-        $scope.checkQuiz = function(chosenQuiz, quiz) {
-        
-            
+        $scope.checkQuiz = function(chosenQuiz, quizId, quiz) {
+            alertify.confirm('Submit?', 'Are you done with your quiz?', function() {
+                alertify.success('Success');
+                var user = firebase.auth().currentUser;
+                let points = 0;
+
+                for (var i = 0; i < chosenQuiz.length; i++) {
+                    if (chosenQuiz[i].answer) {
+                        // Multipl
+                        if (chosenQuiz[i].answer == quiz.answer[i].answer) {
+                            console.log("CORRECT")
+                            points++;
+                        }
+
+                    } else {
+
+                        var d, f;
+                        if (chosenQuiz[i].fill.d) {
+                            d = chosenQuiz[i].fill.d;
+                        } else {
+                            d = "";
+                            quiz.answer[i].fill.d = "";
+                        }
+
+                        if (chosenQuiz[i].fill.f) {
+                            f = chosenQuiz[i].fill.f;
+                        } else {
+                            f = "";
+                            quiz.answer[i].fill.f = "";
+                        }
+
+                        if (chosenQuiz[i].fill.b == quiz.answer[i].fill.b && d == quiz.answer[i].fill.d && f == quiz.answer[i].fill.f) {
+                            console.log("correct");
+                            points++;
+                        }
+                    }
+                }
+
+                $scope.getScore(points, quizId, user, chosenQuiz.length);
+
+            }, function() {
+                alertify.error('Failure')
+            });
+
+
 
         }
 
+        $scope.getScore = function(points, quizId, user, maxPoints) {
+
+            firebase.database().ref('users/' + user.uid + "/completedQuizzes/" + quizId).set({
+                id: quizId,
+                points: points,
+                maxPoints: maxPoints
+
+            })
+        }
 
         // Submit Questions
         $scope.addQuestion = function(newQuestion, chosenQuiz) {

@@ -8,6 +8,10 @@
         <input type="text" ng-show="edit" placeholder="{{chosenQuiz.difficulty}}" name="" ng-model="editQuiz.difficulty">
         <button ng-show="!edit" ng-click="edit = !edit">Edit</button>
         <button ng-show="edit" ng-click="edit = !edit">Save</button>
+        <div class="stamp" ng-show="profile.completedQuizzes[chosenQuiz.key]">
+        	<!-- <img src="images/awardImg.png" alt="Award Image"> -->
+        	<h4>{{profile.completedQuizzes[chosenQuiz.key].points}}/{{profile.completedQuizzes[chosenQuiz.key].maxPoints}}</h4>
+        </div>
     </div>
     <div class="quizList" ng-repeat="question in chosenQuiz.questions">
         <h2 ng-show="question.type == 'fill'">Fill in the Blanks: </h2>
@@ -16,9 +20,9 @@
             <p>{{question.fill.a}}</p>
             <input class="fill" type="text" name="" ng-model="$parent.quizAnswers.answer[$index].fill.b">
             <p ng-if="question.fill.c">{{question.fill.c}}</p>
-            <input class="fill" type="text" name="" ng-model="$parent.quizAnswers.answer[$index].fill.d">
+            <input class="fill" type="text" name="" ng-model="$parent.quizAnswers.answer[$index].fill.d" ng-show="question.fill.d">
             <p ng-if="question.fill.e">{{question.fill.e}}</p>
-            <input class="fill" type="text" name="" ng-model="$parent.quizAnswers.answer[$index].fill.f">
+            <input class="fill" type="text" name="" ng-model="$parent.quizAnswers.answer[$index].fill.f" ng-show="question.fill.f">
         </div>
         <div ng-show="question.type == 'multi'">
             <label>{{question.possible.a}}<input type="radio" name="dab" value="a" ng-model="$parent.quizAnswers.answer[$index].answer"></label>
@@ -28,7 +32,7 @@
         </div>
         <div class="checkQuiz" ng-if="$last">
             <p>All Finished?</p>
-            <button ng-click="checkQuiz(chosenQuiz, $parent.quizAnswers)">Check Quiz</button>
+            <button ng-click="checkQuiz(chosenQuestions, chosenQuiz.key, $parent.quizAnswers)">Check Quiz</button>
         </div>
     </div>
     <!-- Add questions -->
