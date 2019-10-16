@@ -9,12 +9,7 @@ angular.module("myApp")
     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
         var user = firebase.auth().currentUser;
 
-        $rootScope.chosenTopic = null;
-        $scope.choseTopic = function(topic) {
-            console.log("sadfasdfsadf")
-            $rootScope.chosenTopic = topic;
-            sanitiseThis(topic.video, topic.body)
-        }
+
 
         function sanitiseThis(video, body) {
             $rootScope.chosenVideo = $sce.trustAsHtml(video);
@@ -171,7 +166,6 @@ angular.module("myApp")
                 var getProfile = firebase.database().ref('users/' + user.uid);
                 getProfile = $firebaseObject(getProfile);
                 getProfile.$bindTo($rootScope, "profile");
-                $window.location.href = '/#!/home';
             } else {
                 // No user is signed in.
                 $rootScope.user = null;

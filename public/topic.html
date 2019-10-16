@@ -1,4 +1,4 @@
-<div class="topicPage container">
+<div class="topicPage container" ng-controller="topicCtrl">
     <div class="topicContent" ng-show="chosenTopic">
         <div class="row">
             <div class="col-sm-12 col-md-12 col-lg-8">
@@ -23,12 +23,15 @@
                         Blurb:
                         <input type="text" name="" ng-model="chosenTopic.blurb">
                     </label>
-                    <div ng-bind-html="chosenVideo"></div>
+                    <!-- <div ng-bind-html="chosenVideo"></div> -->
+                    <div id="chosenVideo"></div>
                     <label ng-show="edit">
                         Video:
                         <input type="text" name="" ng-model="chosenTopic.video">
                     </label>
-                    <div ng-bind-html="chosenBody"></div>
+                    <!-- <div ng-bind-html="chosenBody"></div> -->
+                    <div id="chosenBody"></div>
+                    <!-- {{chosenTopic.body}} -->
                     <label ng-show="edit">
                         Body:
                         <textarea ng-model="chosenTopic.body"></textarea>
@@ -38,13 +41,14 @@
             <div class="col-sm-12 col-md-12 col-lg-4">
                 <div class="topicSide">
                     <h3>Related Topics</h3>
-                    <div class="hvr-icon-wobble-horizontal relatedTopics" ng-repeat="topic in topics" ng-if="topic.type == chosenTopic.type && chosenTopic.title != topic.title" ng-click="choseTopic(topic); $scope.edit=false">
-                        <h4>{{topic.title}}<i class="material-icons hvr-icon">keyboard_arrow_right</i></h4>
-                        <img src="{{topic.img}}" alt="{{topic.blurb}}">
-                    </div>
+                    <a href="#!/topic/{{topic.id}}" ng-repeat="topic in topics">
+                        <div class="hvr-icon-wobble-horizontal relatedTopics" ng-if="topic.type == chosenTopic.type && chosenTopic.title != topic.title" ng-click="$scope.edit=false">
+                            <h4>{{topic.title}}<i class="material-icons hvr-icon">keyboard_arrow_right</i></h4>
+                            <img src="{{topic.img}}" alt="{{topic.blurb}}">
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    
 </div>

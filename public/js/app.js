@@ -29,7 +29,7 @@ app.config(function($routeProvider) {
         .when("/account", {
             templateUrl: "account.html",
         })
-        .when("/topic", {
+        .when("/topic/:a", {
             templateUrl: "topic.html",
         })
         .when("/contact", {
