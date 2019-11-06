@@ -41,16 +41,19 @@ angular.module("myApp")
 
         $scope.createQuiz = function(quiz) {
             console.log(quiz);
-            var newPostKey = firebase.database().ref().child('topics/').push().key;
-            firebase.database().ref('quiz/' + newPostKey).set({
-                name: quiz.name,
-                difficulty: quiz.difficulty,
-                field: quiz.field,
-                articleKey: quiz.articleKey,
-                key: newPostKey
-            })
-            firebase.database().ref('topics/' + quiz.articleKey + "/quiz").set(newPostKey);
-
+            alertify.confirm('Create New Quiz', 'Would you like to submit this quiz?', function() {
+                var newPostKey = firebase.database().ref().child('topics/').push().key;
+                firebase.database().ref('quiz/' + newPostKey).set({
+                    name: quiz.name,
+                    difficulty: quiz.difficulty,
+                    field: quiz.field,
+                    articleKey: quiz.articleKey,
+                    key: newPostKey
+                })
+                firebase.database().ref('topics/' + quiz.articleKey + "/quiz").set(newPostKey);
+            }, function() {
+                alertify.error('Cancel');
+            });
         }
 
 
