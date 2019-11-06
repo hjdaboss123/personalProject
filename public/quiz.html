@@ -1,4 +1,5 @@
-<div class="quizHolder container">
+<div ng-if="!user"><h2>Sign in if you are wanting to take this measure of skill. It free</h2></div>
+<div class="quizHolder container" ng-if="user">
     <div class="quizTitle" ng-init="edit = false">
         <h2>{{chosenQuiz.name}}</h2>
         <input type="text" ng-show="edit" placeholder="{{chosenQuiz.name}}" name="" ng-model="editQuiz.name">
