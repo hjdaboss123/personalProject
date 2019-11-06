@@ -6,8 +6,8 @@
         <input type="text" ng-show="edit" placeholder="{{chosenQuiz.field}}" name="" ng-model="editQuiz.field">
         <h4>Difficulty:{{chosenQuiz.difficulty}}</h4>
         <input type="text" ng-show="edit" placeholder="{{chosenQuiz.difficulty}}" name="" ng-model="editQuiz.difficulty">
-        <button ng-show="!edit" ng-click="edit = !edit">Edit</button>
-        <button ng-show="edit" ng-click="edit = !edit">Save</button>
+        <button ng-show="!edit" ng-click="edit = !edit" ng-if="profile.type == 'admin'">Edit</button>
+        <button ng-show="edit" ng-click="edit = !edit" ng-if="profile.type == 'admin'">Save</button>
         <div class="stamp" ng-show="profile.completedQuizzes[chosenQuiz.key]">
         	<!-- <img src="images/awardImg.png" alt="Award Image"> -->
         	<h4>{{profile.completedQuizzes[chosenQuiz.key].points}}/{{profile.completedQuizzes[chosenQuiz.key].maxPoints}}</h4>
@@ -36,7 +36,7 @@
         </div>
     </div>
     <!-- Add questions -->
-    <div class="addQuestions">
+    <div class="addQuestions" ng-if="profile.type == 'admin'">
         <h2>Add Questions: </h2>
         <select ng-model="newQuestion.type">
             <option value="multi" selected>Multiple choice</option>
