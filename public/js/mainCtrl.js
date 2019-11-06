@@ -267,5 +267,17 @@ angular.module("myApp")
             }
         }
 
+        $scope.goToQuiz = function(quiz) {
+            $rootScope.chosenQuiz = quiz;
+
+            // Get Site Info
+            var getSiteInfo = firebase.database().ref('quiz/' + quiz.key + '/questions');
+            getSiteInfo = $firebaseArray(getSiteInfo);
+            $rootScope.chosenQuestions = getSiteInfo;
+            //console.log(getSiteInfo)
+            $window.location.href = '/#!/quiz';
+        }
+
 
     })
+
