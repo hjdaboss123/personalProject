@@ -22,16 +22,44 @@ angular.module("myApp")
         getSiteInfo = $firebaseObject(getSiteInfo);
         $rootScope.chosenTopic = getSiteInfo;
 
-        setTimeout(function() {
-            // sanitiseThis($rootScope.chosenTopic.video, $rootScope.chosenTopic.body);
 
-            $rootScope.chosenVideo = $sce.trustAsHtml($rootScope.chosenTopic.video);
-            $rootScope.chosenBody = $sce.trustAsHtml($rootScope.chosenTopic.body);
 
-            chosenVideo.innerHTML = $rootScope.chosenVideo;
-            chosenBody.innerHTML = $rootScope.chosenBody;
-        }, 300)
+        function tryThis(a) {
+            if (a == undefined) {
+                setTimeout(function() {
+                    // sanitiseThis($rootScope.chosenTopic.video, $rootScope.chosenTopic.body);
+                    $rootScope.chosenVideo = $sce.trustAsHtml($rootScope.chosenTopic.video);
+                    $rootScope.chosenBody = $sce.trustAsHtml($rootScope.chosenTopic.body);
 
+                    chosenVideo.innerHTML = $rootScope.chosenVideo;
+                    chosenBody.innerHTML = $rootScope.chosenBody;
+                    tryThis($rootScope.chosenBody);
+                }, 200);
+            } else {
+                console.log($rootScope.chosenBody)
+            }
+
+        }
+
+        tryThis(undefined);
+
+
+
+
+    })
+    .controller('quizCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
+        
+        let topicPath = $location.path();
+        
+        topicPath = topicPath.slice(6, 26);
+        console.log(topicPath);
+
+        
+
+        // Get Site Info
+        var getSiteInfo = firebase.database().ref('quiz/' + topicPath);
+        getSiteInfo = $firebaseObject(getSiteInfo);
+        $rootScope.chosenQuiz = getSiteInfo;
 
 
     })

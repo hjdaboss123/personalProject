@@ -1,5 +1,5 @@
 <div ng-if="!user"><h2>Sign in if you are wanting to take this measure of skill. It free</h2></div>
-<div class="quizHolder container" ng-if="user">
+<div class="quizHolder container" ng-if="user" ng-controller="quizCtrl">
     <div class="quizTitle" ng-init="edit = false">
         <h2>{{chosenQuiz.name}}</h2>
         <input type="text" ng-show="edit" placeholder="{{chosenQuiz.name}}" name="" ng-model="editQuiz.name">
@@ -74,10 +74,5 @@
         </div>
         <button ng-click="addQuestion(newQuestion, chosenQuiz)" ng-show="newQuestion.question">Submit!</button>
     </div>
-    <!-- Question List -->
-    <div class="questionList">
-        <div ng-repeat="question in chosenQuiz.questions">
-            {{question.type}}
-        </div>
-    </div>
+   
 </div>

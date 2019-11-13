@@ -54,18 +54,24 @@ angular.module("myApp")
 
         $scope.showSearch = 0;
         $scope.$watch('search', function(search) {
-            $window.location.href = '/#!/home';
-            $scope.showSearch = 0;
-            for (var i = 0; i < $scope.topics.length; i++) {
-                if ($scope.topics[i].type == search) {
-                    $scope.showSearch++;
-                }
+            if (search == undefined || search == "") {
+                console.log("GOT YOU!!!")
+            } else {
+                console.log("Search: " + search)
+                $window.location.href = '/#!/home';
+                $scope.showSearch = 0;
+                for (var i = 0; i < $scope.topics.length; i++) {
+                    if ($scope.topics[i].type == search) {
+                        $scope.showSearch++;
+                    }
 
-                if ($scope.topics[i].title.toLowerCase().includes(search.toLowerCase())) {
-                    $scope.showSearch++;
+                    if ($scope.topics[i].title.toLowerCase().includes(search.toLowerCase())) {
+                        $scope.showSearch++;
 
+                    }
                 }
             }
+
         });
 
         $scope.$watch('search2', function() {
@@ -134,7 +140,7 @@ angular.module("myApp")
         $scope.googleLogin = function() {
             firebase.auth().signInWithRedirect(provider);
             firebase.auth().getRedirectResult().then(function(result) {
-                console.log(result)
+                console.log("aaaaaaaaaaaaaaaa")
                 if (result.credential) {
                     // This gives you a Google Access Token. You can use it to access the Google API.
                     var token = result.credential.accessToken;
@@ -166,6 +172,7 @@ angular.module("myApp")
                 var getProfile = firebase.database().ref('users/' + user.uid);
                 getProfile = $firebaseObject(getProfile);
                 getProfile.$bindTo($rootScope, "profile");
+                console.log("User here!")
             } else {
                 // No user is signed in.
                 $rootScope.user = null;
@@ -278,6 +285,17 @@ angular.module("myApp")
             $window.location.href = '/#!/quiz';
         }
 
+        // check for quiz
+        let topicPath = $location.path();
+        console.log( topicPath );
+        if ($rootScope.chosenQuiz == null && topicPath == "/quiz") {
+            $window.location.href = '/#!/home';
+        }
+
+
+
 
     })
+
+
 
