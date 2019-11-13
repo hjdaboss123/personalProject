@@ -38,7 +38,7 @@
                     </label>
                 </div>
 
-                <div class="quizOptions">
+                <div class="quizOptions" ng-show="chosenTopic.quiz">
                     <h2>Quizzes:</h2>
                     <div class="quizOption" ng-repeat="quiz in quizzes" ng-show="quiz.articleKey == chosenTopic.id">
                         <img src="images/pythonLogo.ico" ng-show="quiz.field == 'Python'">
@@ -46,9 +46,10 @@
                         <img src="images/webDevLogo.png" ng-show="quiz.field == 'webDev'">
                         <p>{{quiz.name}}</p>
                         <p>{{quiz.difficulty}}</p>
-                        <p ng-show="quiz">Completed: 8/80</p>
+                        <p ng-repeat="i in profile.completedQuizzes" ng-show="quiz.key == i.id">Completed: {{i.points}}/{{i.maxPoints}}</p>
                         <p ng-show="!quiz">Imcomplete</p>
-                        <button ng-click="goToQuiz(quiz)">Go to quiz!</button>
+                        <a href="#!/quiz/{{quiz.key}}">Go to quiz</a>
+                        <!-- <button ng-click="goToQuiz(quiz)">Go to quiz!</button> -->
                     </div>
                 </div>
 

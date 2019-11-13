@@ -842,7 +842,7 @@ footer {
     margin: 0;
 }
 
-.quizOption button {
+.quizOption a {
     color: #FEFFFF;
     border: 3px solid #2B7A78;
     background-color: #2B7A78;
@@ -852,7 +852,7 @@ footer {
     margin: 0 5px;
 }
 
-.quizOption button:hover {
+.quizOption a:hover {
     background-color: #FEFFFF;
     color: #2B7A78;
     border: 3px solid #2B7A78;
