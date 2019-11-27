@@ -334,6 +334,124 @@ pre {
 
 }
 
+.navbarProfile {
+    height: 33px;
+    width: 33px;
+    border: 1px #FEFFFF solid;
+    background-size: cover;
+    background-position: center;
+    margin: 0 2px;
+    cursor: pointer;
+}
+
+.navbarProfile:hover {
+    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+}
+
+.profileSpread  {
+    position: fixed;
+    background-color: rgba(0,0,0,0.0);
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 200;
+    overflow: hidden;
+
+}
+
+.profileSpread.test {
+    display: none;
+}
+
+.navMiniProfile {
+    position: absolute;
+    top: 60px;
+    width: 300px;
+    background-color: white;
+    right: 30px;
+    color: #585858;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.navMiniProfile img {
+    width: 33px;
+    height: 33px;
+    background-position: center;
+    background-size: cover;
+    border-radius: 50%;
+    margin: 10px 0 ;
+}
+
+.miniProUser {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    flex-direction: column;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-wrap: wrap;
+    -webkit-flex-wrap: wrap;
+    -ms-flex-wrap: wrap;
+    height: 60px;
+    padding: 0 15px;
+    margin: 15px 0;
+}
+
+.miniProUser p {
+    margin: 0 20px;
+}
+
+.miniProUser h4 {
+    margin: 0 35px 0 10px;
+    font-size: 13px;
+    color: grey;
+}
+
+.miniProOther a {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+    color: #585858;
+    align-items: center;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    padding: 10px 15px;
+}
+
+.miniProOther a:hover {
+    background-color: rgba(0,0,0,0.3);
+}
+
+.miniProOther i {
+    color: #585858;
+    margin-right: 2px;
+}
+
+.miniProOther hr {
+    width: 90%;
+}
+
+.miniProOther p {
+    padding: 0 15px;
+}
+
+.miniProOther button {
+    margin: 0 15px 15px 15px;
+    padding: 8px 20px;
+    background-color: #2B7A78;
+    color: #fff;
+    font-size: 16px;
+    border: 2px #2B7A78 solid;
+}
+
+.miniProOther button:hover {
+    background-color: #fff;
+    color: #2B7A78;
+    border: 2px #2B7A78 solid;
+    
+}
+
 
 
 /*  HOME PAGE */

@@ -1,7 +1,6 @@
-<div class="navbar" ng-class="menu ? 'active' : 'disabled'">
+<div class="navbar" ng-class="menu ? 'active' : 'disabled'" ng-init="menuPro = 1">
     <a href="#!/home" ng-click="search=''; search2=''; "><img class='logo' src="/images/PPLogo.png" alt="Logo"></a>
     <div class="searchBar centerise">
-
         <input id="enter" type="text" name="" ng-model='search2' placeholder="Search..." ng-init="search2 = ''">
         <i ng-click='search=search2' ng-init="search = '' " class="material-icons searchBtn" id="clickSearch">search</i>
     </div>
@@ -22,20 +21,30 @@
         <button ng-show="user" ng-click="logout()" class="defaultBtn">Logout</button>
         <a href="#!/admin" ng-show="user && profile.type == 'admin' "><button class="defaultBtn">A</button></a>
     </div>
+    <div class="navbarProfile" style="background-image: url({{user.photoURL}});" ng-if="user" ng-click="$parent.menuPro = 0"></div>
+    <div class="profileSpread" ng-click="menuPro = 1" ng-class="{test: menuPro == 1}">
+        <div class="navMiniProfile" ng-if="user">
+            <div class="miniProUser">
+                <img src="{{user.photoURL}}">
+                <p>Syncing to</p>
+                <h4>{{user.email}}</h4>
+            </div>
+            <div class="miniProOther">
+                <p>Points: 35pts</p>
+                <hr>
+                <a href="#!/profile"><i class="material-icons">account_circle</i>Profile Page</a>
+                <a href="#!/contact"><i class="material-icons">contactless</i>Contact Us</a>
+                <hr>
+                <button ng-click="logout()">Log out</button>
+            </div>
+        </div>
+    </div>
 </div>
 <div ng-show="user" ng-init="userWelcome = true" class="userWelcome centerise" ng-class="userWelcome ? 'active' : 'disabled'" ng-click="userWelcome = !userWelcome">
     <p>Welcome, <span ng-show="!profile.name">{{user.displayName}}</span> <span ng-show="profile.name">{{profile.name}}</span><img src="{{user.photoURL}}" alt="Google photo of {{user.displayName}}"></p>
     <i class="material-icons">clear</i>
 </div>
-
 <div ng-show="user && !profile.name">
     <input type="text" name="" placeholder="Name:" ng-model="newProfile">
     <button ng-click="submitProfile(newProfile,user)">Submit Profile!</button>
 </div>
-
-
-
-
-
-
-
