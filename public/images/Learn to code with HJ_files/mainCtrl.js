@@ -124,7 +124,6 @@ angular.module("myApp")
                     console.log('Logged out');
                     $rootScope.profile = null;
                     alertify.success('Logout Successful');
-                    $window.location.href = '/#!/home';
 
                 }).catch(function(error) {
                     alertify.error('Couldnt log out!');
