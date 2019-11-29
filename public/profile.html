@@ -3,28 +3,46 @@
     <h2>Sign in to see your profile!</h2>
 </div>
 <div ng-if="user" class="profile" ng-init="selectQuiz=1">
-    <div class="profileInfo">
+    <!-- <div class="profileInfo">
         <div class="profileName">
             <img src="{{user.photoURL}}">
-            <!--PLACEHOLDERS-->
-        </div>
+             </div>
         <div class="profilePoints">
             <h2>{{user.displayName}}</h2>
-            <!--PLACEHOLDERS-->
+
             <h3>Points: 999</h3>
-            <!--PLACEHOLDERS-->
+
         </div>
-    </div>
-    <div class="profileMenu">
+    </div> -->
+    <!-- <div class="profileMenu">
         <button class="defaultBtn" ng-click="selectQuiz=1">Quizzes</button>
         <button class="defaultBtn" ng-click="selectQuiz=0">Further Reading</button>
         <button class="defaultBtn" ng-click="logout()">Logout</button>
-    </div>
+    </div> -->
     <div class="container-fluid">
         <div class="row">
-        	<div class="col-sm-12 col-md-3"></div>
+            <div class="col-sm-12 col-md-3">
+                <div class="navMiniProfile2 ng-scope" ng-if="user">
+                    <div class="profileUser">
+                        <img src="https://lh4.googleusercontent.com/-XHU0LsCeHhk/AAAAAAAAAAI/AAAAAAAAGuQ/lD00kvSqzGM/photo.jpg">
+                        <h4 class="ng-binding">Hello, Firstname Lastname</h4>
+                        <h4 class="ng-binding">kimh2@dc.edu.hk</h4>
+                    </div>
+                    <div class="profileOther">
+                        <p>Points: 35pts</p>
+                        <hr>
+                        <div class="profileMenu">
+                            <button class="defaultBtn" ng-click="selectQuiz=1">Quizzes</button>
+                            <button class="defaultBtn" ng-click="selectQuiz=0">Further Reading</button>
+                        </div>
+                        <hr>
+                        <button class="defaultBtn" ng-click="logout()">Logout</button>
+                    </div>
+                </div>
+            </div>
             <div class="profileBody col-9" ng-show="selectQuiz">
                 <h2>Quizzes</h2>
+                <p> asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl </p>
             </div>
             <div class="profileBody col-9" ng-show="!selectQuiz">
                 <h2>Further Reading</h2>

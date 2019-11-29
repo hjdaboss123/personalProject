@@ -292,7 +292,7 @@ pre {
     padding: 5px 10px;
     text-align: center;
     color: #fff;
-    position: absolute;
+    position: fixed;
     top: 50px;
     left: 0;
     right: 0;
@@ -451,6 +451,34 @@ pre {
     
 }
 
+.navMiniProfile2 {
+    padding: 10px;
+    position: fixed;
+    top: 60px;
+    width: 25%;
+    background-color: white;
+    
+    color: #585858;
+    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+
+.navMiniProfile2 img {
+    width: 100px;
+    height: 100px;
+}
+
+.profileUser {
+
+}
+
+.profileUser img {
+    border-radius: 5px;
+}
+
+.profileOther {
+
+}
 
 
 /*  HOME PAGE */
@@ -1114,15 +1142,15 @@ footer {
     color: #585858;
 }
 
+
+
 .profileMenu {
-    position: fixed;
-    top: 238px;
-    left: 0px;
-    background-color: #3AAFA9;
+    background-color: #FEFFFF;
     padding: 20px;
     border-radius: 0;
     z-index: 10000;
-    bottom: 279px;
+
+
 }
 
 .profileMenu button {
