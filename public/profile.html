@@ -1,0 +1,30 @@
+<!-- PROFILE PAGE -->
+<div ng-if="!user"><h2>Sign in to see your profile!</h2></div>
+<div ng-if="user" class="profile" ng-init="selectQuiz=1">
+	<div class="profileInfo">
+		<div class="profileName">
+			<img src="{{user.photoURL}}"><!--PLACEHOLDERS-->
+		</div>
+		<div class="profilePoints">
+			<h2>{{user.displayName}}</h2><!--PLACEHOLDERS-->
+			<h3>Points: 999</h3><!--PLACEHOLDERS-->
+			
+		</div>
+		
+	</div>
+
+
+	<div class="profileMenu">
+		<button class="defaultBtn" ng-click="selectQuiz=1">Quizzes</button>
+		<button class="defaultBtn" ng-click="selectQuiz=0">Further Reading</button>
+		<button class="defaultBtn" ng-click="logout()">Logout</button>
+	</div>
+
+	<div class="profileBody" ng-show="selectQuiz">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam posuere risus nec risus vestibulum, id pretium erat volutpat. Donec congue lectus sed magna ultrices pellentesque. Cras facilisis molestie sapien, quis convallis lacus dapibus sed. Vivamus ut porta magna. Suspendisse quis eros sit amet ligula lobortis dictum at quis est. Maecenas porta elementum lorem, vel iaculis neque iaculis eu. Mauris et condimentum lacus. Nulla facilisis, massa sed blandit egestas, mi odio accumsan risus, at luctus orci ligula ullamcorper nibh. Proin auctor augue quis vulputate scelerisque. Vestibulum pellentesque est sed mattis suscipit. Phasellus ornare faucibus finibus. Donec massa mi, ornare mattis porta.</p>
+	</div>
+	<div class="profileBody" ng-show="!selectQuiz">
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur dui nunc, efficitur ut venenatis vitae, rhoncus nec nisl. Etiam consequat justo vitae ultricies commodo. Duis quis urna arcu. Fusce consectetur felis elit, sed scelerisque purus elementum et. Cras sagittis erat vitae leo venenatis vehicula. Nullam non metus eu quam lacinia tempus ac in tortor. Sed convallis magna nec magna pulvinar pulvinar eu id nunc. Ut sed purus diam. Vestibulum imperdiet sapien ac velit posuere, vulputate dignissim diam vestibulum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Pellentesque vitae purus bibendum, facilisis lacus vitae, lobortis quam. Praesent.</p>
+	</div>
+	
+</div>
