@@ -194,7 +194,7 @@ angular.module("myApp")
             $window.location.href = '/#!/quiz';
         }
         // CHECK QUIZ
-        $scope.checkQuiz = function(chosenQ,chosenQuiz, quizId, quiz) {
+        $scope.checkQuiz = function(chosenQ, chosenQuiz, quizId, quiz) {
             alertify.confirm('Submit?', 'Are you done with your quiz?', function() {
                 alertify.success('Success');
                 var user = firebase.auth().currentUser;
@@ -293,8 +293,41 @@ angular.module("myApp")
             $window.location.href = '/#!/home';
         }
 
+        $rootScope.profilePoints = 0;
+        //GET QUIZ TOTAL
+        $scope.$watch('profile', function(profile) {
+            var user = firebase.auth().currentUser;
+
+            if (profile.completedQuizzes) {
+
+                console.log(profile.completedQuizzes);
+                var getProfInfo = firebase.database().ref('users/' + user.uid + '/completedQuizzes');
+                getProfInfo = $firebaseArray(getProfInfo);
+                $rootScope.getProfInfo = getProfInfo;
 
 
+                for (var i = 0; i < getProfInfo.length; i++) {
+                    if (getProfInfo[i].difficulty == "easy") {
+                        $rootScope.profilePoints+= 1*getProfInfo[i].points;
+                        console.log("hi")
+                    } else if (getProfInfo[i].difficulty == "medium") {
+                        $rootScope.profilePoints+= 2*getProfInfo[i].points;
+                        console.log("hi")
+                    } else if (getProfInfo[i].difficulty == "hard") {
+                        $rootScope.profilePoints+= 3*getProfInfo[i].points;
+                        console.log("hi")
+                    }
+
+
+                }
+                console.log($rootScope.getProfInfo)
+
+            }
+
+                console.log(getProfInfo[1])
+
+
+        });
 
 
 
