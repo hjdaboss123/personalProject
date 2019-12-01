@@ -21,30 +21,34 @@
     </div> -->
     <div class="container-fluid">
         <div class="row">
-            <div class="col-sm-12 col-md-3">
+            <div class="col-sm-12 col-lg-3">
                 <div class="navMiniProfile2 ng-scope" ng-if="user">
                     <div class="profileUser">
-                        <img src="https://lh4.googleusercontent.com/-XHU0LsCeHhk/AAAAAAAAAAI/AAAAAAAAGuQ/lD00kvSqzGM/photo.jpg">
-                        <h4 class="ng-binding">Hello, Firstname Lastname</h4>
-                        <h5 class="ng-binding">kimh2@dc.edu.hk</h5>
+                        <div class="profileUserImg">
+                            <img src="https://lh4.googleusercontent.com/-XHU0LsCeHhk/AAAAAAAAAAI/AAAAAAAAGuQ/lD00kvSqzGM/photo.jpg">
+                        </div>
+                        <div class="profileUserTxt">
+                            <h4 class="ng-binding">Hello, Firstname Lastname</h4>
+                            <h5 class="ng-binding">kimh2@dc.edu.hk</h5>
+                        </div>
                     </div>
                     <div class="profileOther">
                         <p>Points: 35pts</p>
                         <hr>
-                        <div class="profileMenu">
-                            <button class="defaultBtn" ng-click="selectQuiz=1">Quizzes</button>
-                            <button class="defaultBtn" ng-click="selectQuiz=0">Further Reading</button>
+                        <div class="">
+                            <button class="defaultBtn" ng-click="$parent.selectQuiz=1">Quizzes</button>
+                            <button class="defaultBtn" ng-click="$parent.selectQuiz=0">Further Reading</button>
                         </div>
                         <hr>
                         <button class="defaultBtn" ng-click="logout()">Logout</button>
                     </div>
                 </div>
             </div>
-            <div class="profileBody col-9" ng-show="selectQuiz">
+            <div class="profileBody col-sm-12 col-lg-9" ng-show="selectQuiz == 1">
                 <h2>Quizzes</h2>
                 <p> asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl </p>
             </div>
-            <div class="profileBody col-9" ng-show="!selectQuiz">
+            <div class="profileBody col-sm-12 col-lg-9" ng-show="selectQuiz == 0">
                 <h2>Further Reading</h2>
                 <div class="furtherHolder">
                     <div class="furtherCard">
@@ -83,7 +87,6 @@
                         <a href="http://www.w3schools.com">www.w3schools.com</a>
                         <p>Something super cool about the school, here but keep it below 100 characters or so.</p>
                     </div>
-                    
                 </div>
             </div>
         </div>
