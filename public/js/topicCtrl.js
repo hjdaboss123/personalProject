@@ -16,7 +16,6 @@ angular.module("myApp")
             console.log($rootScope.chosenVideo);
 
         }
-
         // Get Site Info
         var getSiteInfo = firebase.database().ref('topics/' + topicPath);
         getSiteInfo = $firebaseObject(getSiteInfo);
@@ -48,18 +47,26 @@ angular.module("myApp")
 
     })
     .controller('quizCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
-        
+        var user = firebase.auth().currentUser;
         let topicPath = $location.path();
         
         topicPath = topicPath.slice(6, 26);
         console.log(topicPath);
 
-        
-
         // Get Site Info
         var getSiteInfo = firebase.database().ref('quiz/' + topicPath);
         getSiteInfo = $firebaseObject(getSiteInfo);
         $rootScope.chosenQuiz = getSiteInfo;
+
+        // GET QUIZ!!
+        let quizPath = $location.path();
+        quizPath = quizPath.slice(6, 26);
+        console.log(quizPath)
+
+        // Get Site Info
+        getSiteInfo = firebase.database().ref('quiz/' + quizPath + "/questions");
+        getSiteInfo = $firebaseArray(getSiteInfo);
+        $rootScope.chosenQuestions = getSiteInfo;
 
 
     })

@@ -41,8 +41,39 @@
                 </div>
             </div>
             <div class="profileBody col-9" ng-show="selectQuiz">
-                <h2>Quizzes</h2>
-                <p> asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl asf asdfs jlskdfnblkjh jdkbl alsn ,masdj rlewkjsmf lnm,flknm,cx ijkl </p>
+                <div class="quizzesBox">
+                    <h2>Completed</h2>
+                    <p>Happy with your score?</p>
+                    <div class="quizListHolder">
+                        <div class="quizOption" ng-repeat="quiz in profile.completedQuizzes">
+                            <img src="images/pythonLogo.ico" ng-show="quiz.field == 'Python'">
+                            <img src="images/cppLogo.png" ng-show="quiz.field == 'C++'">
+                            <img src="images/webDevLogo.png" ng-show="quiz.field == 'webDev'">
+                            <p>{{quiz.name}}</p>
+                            <p>{{quiz.difficulty}}</p>
+                            <p ng-repeat="i in profile.completedQuizzes" ng-show="quiz.key == i.id"><i class="material-icons completed">check_circle</i> {{i.points}}/{{i.maxPoints}}</p>
+                            <a href="#!/quiz/{{quiz.key}}">Go to quiz</a>
+                            <!-- <button ng-click="goToQuiz(quiz)">Go to quiz!</button> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="quizzesBox">
+                    <h2>Quizzes</h2>
+                    <p>Try your hand at these.</p>
+                    <div class="quizListHolder">
+                        <div class="quizOption" ng-repeat="quiz in quizzes">
+                            <img src="images/pythonLogo.ico" ng-show="quiz.field == 'Python'">
+                            <img src="images/cppLogo.png" ng-show="quiz.field == 'C++'">
+                            <img src="images/webDevLogo.png" ng-show="quiz.field == 'webDev'">
+                            <p>{{quiz.name}}</p>
+                            <p>{{quiz.difficulty}}</p>
+                            <p ng-repeat="i in profile.completedQuizzes" ng-show="quiz.key == i.id"><i class="material-icons completed">check_circle</i> {{i.points}}/{{i.maxPoints}}</p>
+                            <p ng-show="!profile.completedQuizzes[quiz.key]"><i class="material-icons incompleted">alarm_add</i>  0</p>
+                            <a href="#!/quiz/{{quiz.key}}">Go to quiz</a>
+                            <!-- <button ng-click="goToQuiz(quiz)">Go to quiz!</button> -->
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="profileBody col-9" ng-show="!selectQuiz">
                 <h2>Further Reading</h2>
@@ -83,7 +114,6 @@
                         <a href="http://www.w3schools.com">www.w3schools.com</a>
                         <p>Something super cool about the school, here but keep it below 100 characters or so.</p>
                     </div>
-                    
                 </div>
             </div>
         </div>
