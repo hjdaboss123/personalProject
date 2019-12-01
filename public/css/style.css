@@ -1015,6 +1015,17 @@ footer {
 .quizOption p {
     font-size: 18px;
     margin: 0;
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flex;
+}
+
+.quizOption .completed {
+    color: green;
+}
+
+.quizOption .incompleted {
+    color: orange;
 }
 
 .quizOption a {
@@ -1266,7 +1277,11 @@ footer {
     object-fit: cover;
 }
 
-
+.quizzesBox {
+    margin: 10px 0;
+    padding: 20px;
+    background-color: #fdfdfd;
+}
 
 
 

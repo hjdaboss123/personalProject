@@ -194,7 +194,7 @@ angular.module("myApp")
             $window.location.href = '/#!/quiz';
         }
         // CHECK QUIZ
-        $scope.checkQuiz = function(chosenQuiz, quizId, quiz) {
+        $scope.checkQuiz = function(chosenQ,chosenQuiz, quizId, quiz) {
             alertify.confirm('Submit?', 'Are you done with your quiz?', function() {
                 alertify.success('Success');
                 var user = firebase.auth().currentUser;
@@ -225,14 +225,18 @@ angular.module("myApp")
                             quiz.answer[i].fill.f = "";
                         }
 
-                        if (chosenQuiz[i].fill.b == quiz.answer[i].fill.b && d == quiz.answer[i].fill.d && f == quiz.answer[i].fill.f) {
-                            console.log("correct");
-                            points++;
+                        try {
+                            if (chosenQuiz[i].fill.b == quiz.answer[i].fill.b && d == quiz.answer[i].fill.d && f == quiz.answer[i].fill.f) {
+                                console.log("correct");
+                                points++;
+                            }
+                        } catch (err) {
+                            console.log("something not filled");
                         }
                     }
                 }
 
-                $scope.getScore(points, quizId, user, chosenQuiz.length);
+                $scope.getScore(chosenQ, points, quizId, user, chosenQuiz.length);
 
             }, function() {
                 alertify.error('Failure')
@@ -242,14 +246,20 @@ angular.module("myApp")
 
         }
 
-        $scope.getScore = function(points, quizId, user, maxPoints) {
+        $scope.getScore = function(quiz, points, quizId, user, maxPoints) {
 
             firebase.database().ref('users/' + user.uid + "/completedQuizzes/" + quizId).set({
                 id: quizId,
                 points: points,
-                maxPoints: maxPoints
+                maxPoints: maxPoints,
+                articleKey: quiz.articleKey,
+                difficulty: quiz.difficulty,
+                field: quiz.field,
+                key: quiz.key,
+                name: quiz.name
 
             })
+            $window.location.href = '/#!/profile';
         }
 
         // Submit Questions
@@ -274,20 +284,11 @@ angular.module("myApp")
             }
         }
 
-        $scope.goToQuiz = function(quiz) {
-            $rootScope.chosenQuiz = quiz;
 
-            // Get Site Info
-            var getSiteInfo = firebase.database().ref('quiz/' + quiz.key + '/questions');
-            getSiteInfo = $firebaseArray(getSiteInfo);
-            $rootScope.chosenQuestions = getSiteInfo;
-            //console.log(getSiteInfo)
-            $window.location.href = '/#!/quiz';
-        }
 
         // check for quiz
         let topicPath = $location.path();
-        console.log( topicPath );
+        console.log(topicPath);
         if ($rootScope.chosenQuiz == null && topicPath == "/quiz") {
             $window.location.href = '/#!/home';
         }
@@ -295,7 +296,8 @@ angular.module("myApp")
 
 
 
+
+
+
+
     })
-
-
-
