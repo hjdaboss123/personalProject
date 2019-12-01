@@ -344,12 +344,12 @@ pre {
 }
 
 .navbarProfile:hover {
-    box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.5);
+    box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.5);
 }
 
-.profileSpread  {
+.profileSpread {
     position: fixed;
-    background-color: rgba(0,0,0,0.0);
+    background-color: rgba(0, 0, 0, 0.0);
     top: 0;
     left: 0;
     bottom: 0;
@@ -370,7 +370,7 @@ pre {
     background-color: white;
     right: 30px;
     color: #585858;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
 }
 
 .navMiniProfile img {
@@ -379,7 +379,7 @@ pre {
     background-position: center;
     background-size: cover;
     border-radius: 50%;
-    margin: 10px 0 ;
+    margin: 10px 0;
 }
 
 .miniProUser {
@@ -419,7 +419,7 @@ pre {
 }
 
 .miniProOther a:hover {
-    background-color: rgba(0,0,0,0.3);
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .miniProOther i {
@@ -448,37 +448,43 @@ pre {
     background-color: #fff;
     color: #2B7A78;
     border: 2px #2B7A78 solid;
-    
+
 }
 
 .navMiniProfile2 {
     padding: 10px;
     position: fixed;
     top: 60px;
-    width: 25%;
+    width: 225px;
     background-color: white;
-    
     color: #585858;
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.3);
+    left: 0;
+    max-width: 26vw;
 }
 
 
 .navMiniProfile2 img {
-    width: 100px;
-    height: 100px;
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    display: inline-block;
 }
 
-.profileUser {
-
+.navMiniProfile2 h4 {
+    font-size: 15px;
+    color: #585858;
 }
 
-.profileUser img {
-    border-radius: 5px;
+.navMiniProfile2 h5 {
+    font-size: 15px;
+    color: #7b7b7b;
 }
 
-.profileOther {
+.profileUser {}
 
-}
+
+.profileOther {}
 
 
 /*  HOME PAGE */
@@ -1099,7 +1105,7 @@ footer {
 }
 
 .profileInfo {
-   /*  display: flex;
+    /*  display: flex;
     display: -webkit-flex;
     display: -ms-flex;
     align-items: center;
@@ -1107,7 +1113,7 @@ footer {
     background-color: #fafafa;
     padding: 10px;
     width: 165px;
-} 
+}
 
 .profileInfo img {
     height: 80px;
@@ -1119,7 +1125,7 @@ footer {
 }
 
 .profileName {
-/*     display: flex;
+    /*     display: flex;
     display: -webkit-flex;
     display: -ms-flex; */
     padding: 5px;
@@ -1137,6 +1143,7 @@ footer {
     font-size: 13px;
     padding: 0px;
 }
+
 .profilePoints h3 {
     font-size: 12px;
     color: #585858;
@@ -1181,7 +1188,7 @@ footer {
 
 .furtherCard {
     padding: 20px;
-    background-color: rgba(245,245,245,0.4);
+    background-color: rgba(245, 245, 245, 0.4);
     text-align: center;
     width: 300px;
     transition-duration: 0.3s;
@@ -1198,7 +1205,7 @@ footer {
     transition-duration: 0.3s;
 }
 
-.furtherCard:hover a{
+.furtherCard:hover a {
     color: #DEF2F1;
 }
 
@@ -1208,16 +1215,16 @@ footer {
 }
 
 
-.furtherCard:hover p{
+.furtherCard:hover p {
     color: #fff;
 }
 
-.furtherCard:hover h4{
+.furtherCard:hover h4 {
     color: #fff;
 }
 
 .furtherCard:hover {
-    box-shadow: 0 0 10px 0 rgba(0,0,0,0.6);
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.6);
     background-color: #8c8c8c;
     color: #fff;
 }
