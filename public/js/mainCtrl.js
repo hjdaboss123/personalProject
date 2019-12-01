@@ -9,7 +9,6 @@ angular.module("myApp")
     .controller('mainCtrl', function($rootScope, $scope, $location, $firebaseObject, $window, $firebaseArray, $sce) {
         var user = firebase.auth().currentUser;
 
-
         function sanitiseThis(video, body) {
             $rootScope.chosenVideo = $sce.trustAsHtml(video);
             $rootScope.chosenBody = $sce.trustAsHtml(body);
@@ -172,7 +171,41 @@ angular.module("myApp")
                 var getProfile = firebase.database().ref('users/' + user.uid);
                 getProfile = $firebaseObject(getProfile);
                 getProfile.$bindTo($rootScope, "profile");
-                console.log("User here!")
+
+
+                getProfile = firebase.database().ref('users/' + user.uid + "/completedQuizzes");
+                getProfile = $firebaseArray(getProfile);
+                $rootScope.completedQuizzes = getProfile;
+                console.log(getProfile)
+                var totalPoints = 0;
+                setTimeout(function() {
+                    for (var i = 0; i < $rootScope.completedQuizzes.length; i++) {
+                        if (getProfile[i].difficulty == 'easy') {
+                            totalPoints += 1 * getProfile[i].points;
+                            console.log("hi")
+                        }
+                        if (getProfile[i].difficulty == 'medium') {
+                            totalPoints += 2 * getProfile[i].points;
+                            console.log("hi")
+                        }
+                        if (getProfile[i].difficulty == 'hard') {
+                            totalPoints += 3 * getProfile[i].points;
+                            console.log("hi")
+                        }
+                    }
+                    $scope.$apply(function() {
+                        $rootScope.totalPoints = totalPoints;
+                        console.log(totalPoints)
+                        console.log($rootScope.totalPoints)
+                    });
+
+
+
+                }, 1500)
+
+
+
+
             } else {
                 // No user is signed in.
                 $rootScope.user = null;
@@ -293,41 +326,14 @@ angular.module("myApp")
             $window.location.href = '/#!/home';
         }
 
-        $rootScope.profilePoints = 0;
         //GET QUIZ TOTAL
-        $scope.$watch('profile', function(profile) {
-            var user = firebase.auth().currentUser;
-
-            if (profile.completedQuizzes) {
-
-                console.log(profile.completedQuizzes);
-                var getProfInfo = firebase.database().ref('users/' + user.uid + '/completedQuizzes');
-                getProfInfo = $firebaseArray(getProfInfo);
-                $rootScope.getProfInfo = getProfInfo;
 
 
-                for (var i = 0; i < getProfInfo.length; i++) {
-                    if (getProfInfo[i].difficulty == "easy") {
-                        $rootScope.profilePoints+= 1*getProfInfo[i].points;
-                        console.log("hi")
-                    } else if (getProfInfo[i].difficulty == "medium") {
-                        $rootScope.profilePoints+= 2*getProfInfo[i].points;
-                        console.log("hi")
-                    } else if (getProfInfo[i].difficulty == "hard") {
-                        $rootScope.profilePoints+= 3*getProfInfo[i].points;
-                        console.log("hi")
-                    }
 
 
-                }
-                console.log($rootScope.getProfInfo)
-
-            }
-
-                console.log(getProfInfo[1])
 
 
-        });
+
 
 
 

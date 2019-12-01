@@ -25,7 +25,7 @@
                 <div class="navMiniProfile2 ng-scope" ng-if="user">
                     <div class="profileUser">
                         <div class="profileUserImg">
-                            <img src="https://lh4.googleusercontent.com/-XHU0LsCeHhk/AAAAAAAAAAI/AAAAAAAAGuQ/lD00kvSqzGM/photo.jpg">
+                            <img src="{{user.photoURL}}">
                         </div>
                         <div class="profileUserTxt">
                             <h4 class="ng-binding">Hello, {{profile.name}}</h4>
@@ -33,7 +33,8 @@
                         </div>
                     </div>
                     <div class="profileOther">
-                        <p>Points: {{profilePoints}}pts</p>
+                        <p>Points: <span>{{$parent.totalPoints}}pts</span></p>
+
                         <hr>
                         <div class="">
                             <button class="defaultBtn" ng-click="$parent.selectQuiz=1">Quizzes</button>
