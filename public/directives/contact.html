@@ -1,7 +1,7 @@
 <div class="footerContact">
     <h3>Contact us!</h3>
     <div class="underline"></div>
-    <form onsubmit="submitThis();" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSelu3oeY2hxM8nPzXph8nA4mNM8Uc1BLr6Xxnzf0OD8jFanKQ/formResponse" target="hidden_iframe" method="POST">
+    <form onsubmit="submission = true;" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSelu3oeY2hxM8nPzXph8nA4mNM8Uc1BLr6Xxnzf0OD8jFanKQ/formResponse" target="hidden_iframe" method="POST">
         <input type="text" name="entry.1514530984" placeholder="NAME" required>
         <input type="email" name="entry.799542756" placeholder="EMAIL" required>
         <input type="text" class="long" name="entry.1805795673" placeholder="SUBJECT" required>
@@ -11,10 +11,5 @@
 </div>
 <script type="text/javascript">
 	let submission = false;
-	function submitThis() {
-		submission = true;
-		alertify.success("Submission successful!");
-	}
-	
 </script>
-<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submission) {window.location='#!/home'}" class="ng-scope"></iframe>
+<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submission) {alertify.success('Submission successful!');window.location='#!/home';submission = false;}" class="ng-scope"></iframe>

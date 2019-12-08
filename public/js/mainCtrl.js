@@ -123,6 +123,7 @@ angular.module("myApp")
                     $rootScope.profile = null;
                     alertify.success('Logout Successful');
                     $window.location.href = '/#!/home';
+                    $window.location.reload();
 
                 }).catch(function(error) {
                     alertify.error('Couldnt log out!');
