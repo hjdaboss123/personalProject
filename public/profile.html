@@ -33,8 +33,8 @@
                         </div>
                     </div>
                     <div class="profileOther">
-                        <p>Points: <span>{{$parent.totalPoints}}pts</span></p>
-
+                        <p>Points:
+                            <span ng-show="$last" ng-repeat="quiz in profile.completedQuizzes">{{getTotalPoints(quiz)}}</span>pts</p>
                         <hr>
                         <div class="">
                             <button class="defaultBtn" ng-click="$parent.selectQuiz=1">Quizzes</button>
@@ -45,7 +45,6 @@
                     </div>
                 </div>
             </div>
-          
             <div class="profileBody col-sm-12 col-lg-9" ng-show="selectQuiz">
                 <div class="quizzesBox">
                     <h2>Completed</h2>
@@ -57,7 +56,7 @@
                             <img src="images/webDevLogo.png" ng-show="quiz.field == 'webDev'">
                             <p>{{quiz.name}}</p>
                             <p>{{quiz.difficulty}}</p>
-                            <p ng-repeat="i in profile.completedQuizzes" ng-show="quiz.key == i.id"><i class="material-icons completed">check_circle</i> {{i.points}}/{{i.maxPoints}}</p>
+                            <p><i class="material-icons completed">check_circle</i> {{quiz.points}}/{{quiz.maxPoints}}</p>
                             <a href="#!/quiz/{{quiz.key}}">Go to quiz</a>
                             <!-- <button ng-click="goToQuiz(quiz)">Go to quiz!</button> -->
                         </div>
@@ -67,20 +66,17 @@
                     <h2>Quizzes</h2>
                     <p>Try your hand at these.</p>
                     <div class="quizListHolder">
-                        <div class="quizOption" ng-repeat="quiz in quizzes">
+                        <div class="quizOption" ng-repeat="quiz in quizzes" ng-show="!profile.completedQuizzes[quiz.key]">
                             <img src="images/pythonLogo.ico" ng-show="quiz.field == 'Python'">
                             <img src="images/cppLogo.png" ng-show="quiz.field == 'C++'">
                             <img src="images/webDevLogo.png" ng-show="quiz.field == 'webDev'">
                             <p>{{quiz.name}}</p>
                             <p>{{quiz.difficulty}}</p>
-                            <p ng-repeat="i in profile.completedQuizzes" ng-show="quiz.key == i.id"><i class="material-icons completed">check_circle</i> {{i.points}}/{{i.maxPoints}}</p>
-                            <p ng-show="!profile.completedQuizzes[quiz.key]"><i class="material-icons incompleted">alarm_add</i>  0</p>
                             <a href="#!/quiz/{{quiz.key}}">Go to quiz</a>
                             <!-- <button ng-click="goToQuiz(quiz)">Go to quiz!</button> -->
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="profileBody col-sm-12 col-lg-9" ng-show="selectQuiz == 0">
                 <h2>Further Reading</h2>

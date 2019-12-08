@@ -173,35 +173,7 @@ angular.module("myApp")
                 getProfile.$bindTo($rootScope, "profile");
 
 
-                getProfile = firebase.database().ref('users/' + user.uid + "/completedQuizzes");
-                getProfile = $firebaseArray(getProfile);
-                $rootScope.completedQuizzes = getProfile;
-                console.log(getProfile)
-                var totalPoints = 0;
-                setTimeout(function() {
-                    for (var i = 0; i < $rootScope.completedQuizzes.length; i++) {
-                        if (getProfile[i].difficulty == 'easy') {
-                            totalPoints += 1 * getProfile[i].points;
-                            console.log("hi")
-                        }
-                        if (getProfile[i].difficulty == 'medium') {
-                            totalPoints += 2 * getProfile[i].points;
-                            console.log("hi")
-                        }
-                        if (getProfile[i].difficulty == 'hard') {
-                            totalPoints += 3 * getProfile[i].points;
-                            console.log("hi")
-                        }
-                    }
-                    $scope.$apply(function() {
-                        $rootScope.totalPoints = totalPoints;
-                        console.log(totalPoints)
-                        console.log($rootScope.totalPoints)
-                    });
 
-
-
-                }, 1500)
 
 
 
@@ -212,6 +184,26 @@ angular.module("myApp")
                 console.log("No user...");
             }
         });
+
+
+        let totalPOints = 0;
+        let totalPOintsKey = [];
+        $scope.getTotalPoints = function(i) {
+
+
+            if ( totalPOintsKey.includes(i.key) ) {
+                console.log("ALready here")
+            } else {
+                totalPOintsKey.push(i.key)
+                totalPOints += i.points;
+            }
+
+            
+
+            console.log(i.points);
+            console.log(totalPOints);
+            return totalPOints;
+        }
 
 
         // Edit Quiz
@@ -275,8 +267,6 @@ angular.module("myApp")
                 alertify.error('Failure')
             });
 
-
-
         }
 
         $scope.getScore = function(quiz, points, quizId, user, maxPoints) {
@@ -293,6 +283,7 @@ angular.module("myApp")
 
             })
             $window.location.href = '/#!/profile';
+            $window.location.reload();
         }
 
         // Submit Questions
