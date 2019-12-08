@@ -30,7 +30,8 @@
                 <h4>{{user.email}}</h4>
             </div>
             <div class="miniProOther">
-                <p>Points:{{totalPoints}}pts</p>
+
+                <p>Points:<span ng-repeat="quiz in profile.completedQuizzes" ng-show="$last">{{getTotalPoints(quiz)}}</span>pts</p>
                 <hr>
                 <a href="#!/profile"><i class="material-icons">account_circle</i>Profile Page</a>
                 <a href="#!/contact"><i class="material-icons">contactless</i>Contact Us</a>

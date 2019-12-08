@@ -1,4 +1,9 @@
-<div ng-if="!user"><h2>Sign in if you are wanting to take this measure of skill. It free</h2></div>
+<div ng-if="!user" class="noUser">
+    <h2>Sign in if you want to take the quiz, it is free!</h2>
+    
+</div>
+
+
 <div class="quizHolder container" ng-if="user" ng-controller="quizCtrl">
     <div class="quizTitle" ng-init="edit = false">
         <h2>{{chosenQuiz.name}}</h2>
