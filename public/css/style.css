@@ -499,8 +499,6 @@ pre {
 }
 
 
-.profileOther {}
-
 .profileOther button {
     padding: 2px 0px;
     margin-left: 0px;
@@ -600,11 +598,12 @@ h1 {
     margin-right: 2px;
 }
 
-
+/* 
 .homeItem a:hover {
-    /* color: #2B7A78; */
-    /*border: 2px solid #2B7A78;*/
-}
+     color: #2B7A78; 
+    border: 2px solid #2B7A78;
+} 
+*/
 
 
 
@@ -868,11 +867,9 @@ footer {
     right: 15px;
 }
 
-.cardHolder {}
 
 /*  TOPICS PAGE */
 
-.topicPage {}
 
 .topicPage h1 {
     background-color: transparent;
@@ -1074,8 +1071,6 @@ footer {
 }
 
 /* Quiz Page */
-
-.quizHolder {}
 
 .quizTitle {
     text-align: center;
@@ -1471,7 +1466,7 @@ footer {
     .navbar .defaultBtn {
         margin: 20px 0;
         display: block;
-        `
+        
     }
 
     .menuThing {
